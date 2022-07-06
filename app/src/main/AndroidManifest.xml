@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="kuvaev.mainapp.eatit_server">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
     <application
+        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.EatIt_Server">
+        tools:targetApi="m">
+        <activity
+            android:name=".SignInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TrackingOrderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ShipperManagementActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SendMessageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OrderStatusActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OrderDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FoodListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BannerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Home"
+            android:exported="false"
+            android:label="@string/title_activity_home"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -19,5 +57,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
