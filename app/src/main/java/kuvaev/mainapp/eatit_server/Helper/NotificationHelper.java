@@ -19,7 +19,7 @@ public class NotificationHelper {
     private NotificationManager manager;
 
     public NotificationHelper(Context base) {
-        super(base);
+        super();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)  //only working this function if API is 26 or higher
             createChannel();

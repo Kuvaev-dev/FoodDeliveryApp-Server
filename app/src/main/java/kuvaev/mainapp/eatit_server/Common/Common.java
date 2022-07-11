@@ -13,6 +13,10 @@ import java.util.Locale;
 
 import kuvaev.mainapp.eatit_server.Model.Request;
 import kuvaev.mainapp.eatit_server.Model.User;
+import kuvaev.mainapp.eatit_server.Remote.APIService;
+import kuvaev.mainapp.eatit_server.Remote.FCMRetrofitClient;
+import kuvaev.mainapp.eatit_server.Remote.GeoCoordinateAction;
+import kuvaev.mainapp.eatit_server.Remote.RetrofitClient;
 
 public class Common {
     public static final String SHIPPERS_TABLE = "Shippers";
@@ -42,8 +46,8 @@ public class Common {
             return "Shipped";
     }
 
-    public static IGeoCoordinates getGeoCodeService(){
-        return RetrofitClient.getClient(baseUrl).create(IGeoCoordinates.class);
+    public static GeoCoordinateAction getGeoCodeService(){
+        return RetrofitClient.getClient(baseUrl).create(GeoCoordinateAction.class);
     }
 
     public static APIService getFCMClient(){
