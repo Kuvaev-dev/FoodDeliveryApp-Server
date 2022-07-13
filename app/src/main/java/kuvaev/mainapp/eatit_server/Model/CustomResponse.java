@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.xml.transform.Result;
 
-public class Response {
+public class CustomResponse {
     public long multicast_id;
     public int success;
     public int failure;

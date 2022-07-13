@@ -1,7 +1,7 @@
 package kuvaev.mainapp.eatit_server.Remote;
 
+import kuvaev.mainapp.eatit_server.Model.CustomResponse;
 import kuvaev.mainapp.eatit_server.Model.DataMessage;
-import kuvaev.mainapp.eatit_server.Model.Response;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Headers;
@@ -16,5 +16,5 @@ public interface APIService {
     )
 
     @POST("fcm/send")
-    Call<Response> sendNotification(@Body DataMessage body);
+    Call<CustomResponse> sendNotification(@Body DataMessage body);
 }
