@@ -104,7 +104,7 @@ public class BannerActivity extends AppCompatActivity {
         alertDialog.setTitle("Add new Banner");
         alertDialog.setMessage("Please fill full information");
 
-        View view = getLayoutInflater().inflate(R.layout.add_new_banner , null);
+        View view = getLayoutInflater().inflate(R.layout.layout_add_new_banner, null);
 
         edtFoodId = (MaterialEditText) view.findViewById(R.id.edtFoodId);
         edtName = (MaterialEditText) view.findViewById(R.id.edtFoodName);
@@ -198,7 +198,7 @@ public class BannerActivity extends AppCompatActivity {
         alertDialog.setTitle("Edit Banner");
         alertDialog.setMessage("Please fill full information");
 
-        View edit_banner = getLayoutInflater().inflate(R.layout.add_new_banner , null);
+        View edit_banner = getLayoutInflater().inflate(R.layout.layout_add_new_banner, null);
 
         edtName = (MaterialEditText)edit_banner.findViewById(R.id.edtFoodName);
         edtFoodId = (MaterialEditText)edit_banner.findViewById(R.id.edtFoodId);

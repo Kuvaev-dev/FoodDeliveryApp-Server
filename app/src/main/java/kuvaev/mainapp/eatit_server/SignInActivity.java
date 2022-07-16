@@ -42,13 +42,7 @@ public class SignInActivity extends AppCompatActivity {
         db = FirebaseDatabase.getInstance();
         users = db.getReference("User");
 
-        btnSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                signInUser(Objects.requireNonNull(edtPhone.getText()).toString() , Objects.requireNonNull(edtPassword.getText()).toString());
-            }
-        });
+        btnSignIn.setOnClickListener(v -> signInUser(Objects.requireNonNull(edtPhone.getText()).toString() , Objects.requireNonNull(edtPassword.getText()).toString()));
     }
 
     private void signInUser(String phone, String password) {
