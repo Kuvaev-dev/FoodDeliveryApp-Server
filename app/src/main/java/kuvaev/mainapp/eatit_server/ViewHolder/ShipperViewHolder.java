@@ -17,12 +17,11 @@ public class ShipperViewHolder extends RecyclerView.ViewHolder implements View.O
     public ShipperViewHolder(View itemView) {
         super(itemView);
 
-        shipper_name = (TextView)itemView.findViewById(R.id.shipper_name);
-        shipper_phone = (TextView)itemView.findViewById(R.id.shipper_phone);
-        btn_edit = (Button) itemView.findViewById(R.id.btnEdit);
-        btn_remove = (Button)itemView.findViewById(R.id.btnRemove);
+        shipper_name = itemView.findViewById(R.id.shipper_name);
+        shipper_phone = itemView.findViewById(R.id.shipper_phone);
+        btn_edit = itemView.findViewById(R.id.btnEdit);
+        btn_remove = itemView.findViewById(R.id.btnRemove);
     }
-
 
     public void setItemClickListener(ItemClickListener itemClickListener) {
         this.itemClickListener = itemClickListener;
@@ -30,6 +29,6 @@ public class ShipperViewHolder extends RecyclerView.ViewHolder implements View.O
 
     @Override
     public void onClick(View v) {
-        itemClickListener.onClick(v , getAdapterPosition() , false);
+        itemClickListener.onClick(v, getBindingAdapterPosition(), false);
     }
 }

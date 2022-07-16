@@ -116,10 +116,10 @@ public class OrderStatusActivity extends AppCompatActivity {
 
         View view = getLayoutInflater().inflate(R.layout.layout_update_order , null);
 
-        spinner = (MaterialSpinner)view.findViewById(R.id.statusSpinner);
+        spinner = view.findViewById(R.id.statusSpinner);
         spinner.setItems("Placed" , "On may way" , "Shipping");
 
-        shipperSpinner = (MaterialSpinner)view.findViewById(R.id.shipperSpinner);
+        shipperSpinner = view.findViewById(R.id.shipperSpinner);
         //Load all shipper phone to spinner
         final List<String> shipperList = new ArrayList<>();
         FirebaseDatabase.getInstance().getReference(Common.SHIPPERS_TABLE)

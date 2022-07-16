@@ -20,10 +20,10 @@ public class MenuViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     public MenuViewHolder(View itemView) {
         super(itemView);
 
-        txtMenuName = (TextView)itemView.findViewById(R.id.menu_name);
-        imageView = (ImageView)itemView.findViewById(R.id.menu_image);
+        txtMenuName = itemView.findViewById(R.id.menu_name);
+        imageView = itemView.findViewById(R.id.menu_image);
 
-        itemView.setOnCreateContextMenuListener(this); //For Context Menu
+        itemView.setOnCreateContextMenuListener(this); // For Context Menu
         itemView.setOnClickListener(this);
     }
 
@@ -33,13 +33,13 @@ public class MenuViewHolder extends RecyclerView.ViewHolder implements View.OnCl
 
     @Override
     public void onClick(View v) {
-        itemClickListener.onClick(v , getAdapterPosition() , false);
+        itemClickListener.onClick(v, getBindingAdapterPosition(), false);
     }
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         menu.setHeaderTitle("Select the action");
-        menu.add(0 , 0 , getAdapterPosition() , Common.UPDATE);
-        menu.add(0 , 1 , getAdapterPosition() , Common.DELETE);
+        menu.add(0, 0, getBindingAdapterPosition(), Common.UPDATE);
+        menu.add(0, 1, getBindingAdapterPosition(), Common.DELETE);
     }
 }

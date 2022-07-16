@@ -37,7 +37,7 @@ public class OrderDetailAdapter extends RecyclerView.Adapter<MyViewHolder> {
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.order_detail_layout , parent
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_order_detail, parent
                 ,false);
 
         return new MyViewHolder(itemView);
@@ -45,7 +45,6 @@ public class OrderDetailAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-
         Order order = myOrders.get(position);
 
         holder.name.setText(String.format("Name : %s" , order.getProductName()));

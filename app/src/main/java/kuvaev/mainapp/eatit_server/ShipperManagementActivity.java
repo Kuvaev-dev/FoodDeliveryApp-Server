@@ -44,10 +44,10 @@ public class ShipperManagementActivity extends AppCompatActivity {
         shippers = database.getReference(Common.SHIPPERS_TABLE);
 
         // Init Views
-        fabAdd = (FloatingActionButton)findViewById(R.id.fab_add);
+        fabAdd = findViewById(R.id.fab_add);
         fabAdd.setOnClickListener(v -> showCreateShipperLayout());
 
-        recyclerView = (RecyclerView)findViewById(R.id.recycler_shippers);
+        recyclerView = findViewById(R.id.recycler_shippers);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -89,9 +89,9 @@ public class ShipperManagementActivity extends AppCompatActivity {
         create_shipper_dialog.setTitle("Update Shipper");
 
         View view = getLayoutInflater().inflate(R.layout.layout_create_shipper , null);
-        final MaterialEditText edtName = (MaterialEditText)view.findViewById(R.id.edtName);
-        final MaterialEditText edtPhone = (MaterialEditText)view.findViewById(R.id.edtPhone);
-        final MaterialEditText edtPassword = (MaterialEditText)view.findViewById(R.id.edtPassword);
+        final MaterialEditText edtName = view.findViewById(R.id.edtName);
+        final MaterialEditText edtPhone = view.findViewById(R.id.edtPhone);
+        final MaterialEditText edtPassword = view.findViewById(R.id.edtPassword);
 
         // Set data
         edtName.setText(model.getName());
@@ -123,9 +123,9 @@ public class ShipperManagementActivity extends AppCompatActivity {
         create_shipper_dialog.setTitle("Create Shipper");
 
         View view = getLayoutInflater().inflate(R.layout.layout_create_shipper, null);
-        final MaterialEditText edtName = (MaterialEditText)view.findViewById(R.id.edtName);
-        final MaterialEditText edtPhone = (MaterialEditText)view.findViewById(R.id.edtPhone);
-        final MaterialEditText edtPassword = (MaterialEditText)view.findViewById(R.id.edtPassword);
+        final MaterialEditText edtName = view.findViewById(R.id.edtName);
+        final MaterialEditText edtPhone = view.findViewById(R.id.edtPhone);
+        final MaterialEditText edtPassword = view.findViewById(R.id.edtPassword);
 
         create_shipper_dialog.setView(view);
         create_shipper_dialog.setIcon(R.drawable.ic_local_shipping_black_24dp);

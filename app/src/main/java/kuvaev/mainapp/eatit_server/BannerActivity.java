@@ -66,14 +66,14 @@ public class BannerActivity extends AppCompatActivity {
         storageReference = storage.getReference();
 
         // Init RecyclerView
-        recyclerView = (RecyclerView)findViewById(R.id.recycler_banner);
+        recyclerView = findViewById(R.id.recycler_banner);
         recyclerView.setVisibility(View.VISIBLE);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        rootLayout = (RelativeLayout)findViewById(R.id.rootLayout);
+        rootLayout = findViewById(R.id.rootLayout);
 
-        fab = (FloatingActionButton)findViewById(R.id.fab);
+        fab = findViewById(R.id.fab);
         fab.setOnClickListener(v -> showAddBanner());
 
         loadListBanner();
@@ -106,10 +106,10 @@ public class BannerActivity extends AppCompatActivity {
 
         View view = getLayoutInflater().inflate(R.layout.layout_add_new_banner, null);
 
-        edtFoodId = (MaterialEditText) view.findViewById(R.id.edtFoodId);
-        edtName = (MaterialEditText) view.findViewById(R.id.edtFoodName);
-        btnSelect = (Button) view.findViewById(R.id.btnSelect);
-        btnUpload =(Button) view.findViewById(R.id.btnUpload);
+        edtFoodId = view.findViewById(R.id.edtFoodId);
+        edtName = view.findViewById(R.id.edtFoodName);
+        btnSelect = view.findViewById(R.id.btnSelect);
+        btnUpload =view.findViewById(R.id.btnUpload);
 
         btnSelect.setOnClickListener(v -> chooseImage());
         btnUpload.setOnClickListener(v -> uploadImage());
@@ -200,15 +200,15 @@ public class BannerActivity extends AppCompatActivity {
 
         View edit_banner = getLayoutInflater().inflate(R.layout.layout_add_new_banner, null);
 
-        edtName = (MaterialEditText)edit_banner.findViewById(R.id.edtFoodName);
-        edtFoodId = (MaterialEditText)edit_banner.findViewById(R.id.edtFoodId);
+        edtName = edit_banner.findViewById(R.id.edtFoodName);
+        edtFoodId = edit_banner.findViewById(R.id.edtFoodId);
 
         // Set default value for view
         edtName.setText(item.getName());
         edtFoodId.setText(item.getId());
 
-        btnSelect = (Button)edit_banner.findViewById(R.id.btnSelect);
-        btnUpload =(Button)edit_banner.findViewById(R.id.btnUpload);
+        btnSelect = edit_banner.findViewById(R.id.btnSelect);
+        btnUpload = edit_banner.findViewById(R.id.btnUpload);
 
         // Event for Button
         btnSelect.setOnClickListener(v -> {

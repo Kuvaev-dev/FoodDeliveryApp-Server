@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -34,9 +33,9 @@ public class SignInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        edtPhone = (MaterialEditText)findViewById(R.id.edtPhone);
-        edtPassword = (MaterialEditText)findViewById(R.id.edtPassword);
-        btnSignIn = (Button)findViewById(R.id.btnSignIn);
+        edtPhone = findViewById(R.id.edtPhone);
+        edtPassword = findViewById(R.id.edtPassword);
+        btnSignIn = findViewById(R.id.btnSignIn);
 
         //Init FireBase
         db = FirebaseDatabase.getInstance();

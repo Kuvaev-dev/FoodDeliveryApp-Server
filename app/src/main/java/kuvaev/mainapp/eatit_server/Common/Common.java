@@ -35,15 +35,16 @@ public class Common {
     public static final String API_KEY_MAPS = ".......................";
 
     public static String convertCodeToStatus(String code){
-
-        if (code.equals("0"))
-            return "Placed";
-        else if (code.equals("1"))
-            return "On my way";
-        else if (code.equals("2"))
-            return "Shipping";
-        else
-            return "Shipped";
+        switch (code) {
+            case "0":
+                return "Placed";
+            case "1":
+                return "On my way";
+            case "2":
+                return "Shipping";
+            default:
+                return "Shipped";
+        }
     }
 
     public static GeoCoordinateAction getGeoCodeService(){
@@ -72,7 +73,6 @@ public class Common {
     }
 
     public static boolean isConnectionToInternet(Context context){
-
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (connectivityManager != null){
             NetworkInfo[] info = connectivityManager.getAllNetworkInfo();
