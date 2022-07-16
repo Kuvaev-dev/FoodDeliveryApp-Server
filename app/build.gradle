@@ -2,6 +2,9 @@ plugins {
     id 'com.android.application'
 }
 
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
 android {
     compileSdk 32
 
@@ -31,7 +34,7 @@ android {
 }
 
 dependencies {
-
+    implementation platform('com.google.firebase:firebase-bom:30.2.0')
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -49,6 +52,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-scalars:2.1.0'
     implementation 'com.google.firebase:firebase-database:20.0.5'
     implementation 'com.firebaseui:firebase-ui-database:8.0.1'
+    implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-storage:20.0.1'
     implementation 'com.squareup.picasso:picasso:2.8'
     testImplementation 'junit:junit:4.13.2'

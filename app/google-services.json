@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "662215486916",
+    "firebase_url": "https://eatit-4251a-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "eatit-4251a",
+    "storage_bucket": "eatit-4251a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:662215486916:android:7ceafff2b789f341e3c891",
+        "android_client_info": {
+          "package_name": "kuvaev.mainapp.eatit_server"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "662215486916-iepqifvi4ro0vsurop01cmhf6tqnhtpr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXHG0JIVImsZJbQtJM5xFGpjMRZLDksBc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "662215486916-iepqifvi4ro0vsurop01cmhf6tqnhtpr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:662215486916:android:66ed8125bf42d248e3c891",
+        "android_client_info": {
+          "package_name": "kuvaev.mainapp.eatit_shipper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "662215486916-iepqifvi4ro0vsurop01cmhf6tqnhtpr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXHG0JIVImsZJbQtJM5xFGpjMRZLDksBc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "662215486916-iepqifvi4ro0vsurop01cmhf6tqnhtpr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
