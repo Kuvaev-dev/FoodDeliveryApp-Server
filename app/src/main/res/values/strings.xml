@@ -66,4 +66,5 @@
     <string name="anb_select_text">SELECT</string>
     <string name="anb_food_name_text">Food Name</string>
     <string name="anb_food_id_text">Food Id</string>
+    <string name="str_image_selected">Image Selected !</string>
 </resources>
