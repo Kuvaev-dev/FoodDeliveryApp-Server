@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -19,8 +20,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:orientation="horizontal"
-            android:layout_gravity="center_vertical"
-            android:baselineAligned="false">
+            android:layout_gravity="center_vertical">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -30,53 +30,53 @@
 
                 <TextView
                     android:id="@+id/order_id"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
                     android:gravity="center_vertical|start"
                     android:textAllCaps="true"
                     android:textStyle="bold"
                     android:text="@string/od_order_id_text"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
 
                 <TextView
                     android:id="@+id/order_phone"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
                     android:gravity="center_vertical|start"
                     android:textAllCaps="true"
                     android:textStyle="italic"
                     android:text="@string/od_order_phone_text"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
 
                 <TextView
                     android:id="@+id/order_total"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
                     android:gravity="center_vertical|start"
                     android:textAllCaps="true"
                     android:textStyle="italic"
-                    android:text="@string/od_order_total_text"
+                    android:text="@string/od_cost_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
                 <TextView
                     android:id="@+id/order_address"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
                     android:gravity="center_vertical|start"
                     android:textAllCaps="true"
                     android:textStyle="italic"
-                    android:text="@string/od_order_detail_text"
+                    android:text="@string/od_address_text"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
 
                 <TextView
                     android:id="@+id/order_comment"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
                     android:gravity="center_vertical|start"
                     android:textAllCaps="true"
                     android:textStyle="italic"
                     android:text="@string/od_comment_text"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -94,13 +94,11 @@
             android:textColor="@android:color/white"
             android:textSize="30sp"
             android:layout_marginBottom="20dp"
-            android:layout_marginStart="8dp"/>
+            android:layout_marginLeft="8dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/lstFood"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </androidx.recyclerview.widget.RecyclerView>
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 </RelativeLayout>

@@ -25,8 +25,7 @@
             android:layout_height="wrap_content"
             android:text="@string/slogan"
             android:textColor="@android:color/white"
-            android:fontFamily="cursive"
-            android:textSize="28sp"
+            android:textSize="18sp"
             android:gravity="center"/>
     </LinearLayout>
 
@@ -40,13 +39,14 @@
 
         <info.hoang8f.widget.FButton
             android:id="@+id/btnSignIn"
-            android:text="@string/main_fbutton_sign_in_text"
-            android:textColor="@color/white"
+            android:text="@string/main_sign_in_text"
+            android:textColor="@color/colorPrimary"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="8dp"
-            app:shadowColor="@color/white"
+            app:fButtonColor="@android:color/white"
+            app:shadowColor="@color/colorPrimary"
             app:shadowEnabled="true"
             app:shadowHeight="5dp"
             app:cornerRadius="4dp"/>

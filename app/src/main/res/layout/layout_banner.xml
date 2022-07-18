@@ -20,7 +20,7 @@
 
         <TextView
             android:id="@+id/banner_name"
-            android:text="@string/lb_add_banner_text"
+            android:text="@string/lb_name_of_banner"
             android:textColor="@android:color/white"
             android:background="#4f0e0d0e"
             android:textSize="20sp"

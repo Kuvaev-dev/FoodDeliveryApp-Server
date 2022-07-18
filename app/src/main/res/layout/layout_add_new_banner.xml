@@ -57,7 +57,8 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                app:shadowColor="@android:color/white"
+                app:fButtonColor="@color/colorPrimary"
+                app:shadowColor="@android:color/black"
                 app:shadowEnabled="true"
                 app:shadowHeight="5dp"
                 app:cornerRadius="4dp"/>
@@ -70,7 +71,8 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                app:shadowColor="@android:color/white"
+                app:fButtonColor="@color/colorPrimaryDark"
+                app:shadowColor="@android:color/black"
                 app:shadowEnabled="true"
                 app:shadowHeight="5dp"
                 app:cornerRadius="4dp"/>

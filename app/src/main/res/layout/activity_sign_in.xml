@@ -55,7 +55,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:layout_alignParentBottom="true"
-        app:shadowColor="@android:color/white"
+        app:fButtonColor="@color/colorPrimary"
+        app:shadowColor="@android:color/black"
         app:shadowEnabled="true"
         app:shadowHeight="5dp"
         app:cornerRadius="4dp"/>

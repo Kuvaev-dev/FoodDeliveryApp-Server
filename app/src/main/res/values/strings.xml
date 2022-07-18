@@ -67,4 +67,8 @@
     <string name="anb_food_name_text">Food Name</string>
     <string name="anb_food_id_text">Food Id</string>
     <string name="str_image_selected">Image Selected !</string>
+    <string name="main_sign_in_text">Sign In</string>
+    <string name="od_address_text">Address</string>
+    <string name="od_cost_text">$1000</string>
+    <string name="lb_name_of_banner">Name of Banner</string>
 </resources>

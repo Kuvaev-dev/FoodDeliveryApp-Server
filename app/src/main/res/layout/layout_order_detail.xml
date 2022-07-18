@@ -14,8 +14,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:orientation="horizontal"
-        android:layout_gravity="center_vertical"
-        android:baselineAligned="false">
+        android:layout_gravity="center_vertical">
 
         <LinearLayout
             android:orientation="vertical"
@@ -25,7 +24,7 @@
 
             <TextView
                 android:id="@+id/product_name"
-                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:gravity="center_vertical|start"
                 android:textAllCaps="true"
                 android:textStyle="bold"
@@ -35,7 +34,7 @@
 
             <TextView
                 android:id="@+id/product_quantity"
-                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:gravity="center_vertical|start"
                 android:textAllCaps="true"
                 android:textStyle="italic"
@@ -45,7 +44,7 @@
 
             <TextView
                 android:id="@+id/product_price"
-                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:gravity="center_vertical|start"
                 android:textAllCaps="true"
                 android:textStyle="italic"
@@ -55,13 +54,13 @@
 
             <TextView
                 android:id="@+id/product_discount"
-                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:gravity="center_vertical|start"
                 android:textAllCaps="true"
                 android:textStyle="italic"
                 android:text="@string/od_product_discount_text"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

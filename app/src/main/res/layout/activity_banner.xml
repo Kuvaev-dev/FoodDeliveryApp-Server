@@ -21,10 +21,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         app:backgroundTint="@android:color/white"
         app:srcCompat="@drawable/ic_playlist_add_black_24dp"
-        tools:targetApi="lollipop"
         tools:ignore="VectorDrawableCompat"
         android:contentDescription="@null"/>
 </RelativeLayout>
