@@ -13,7 +13,7 @@ import androidx.annotation.RequiresApi;
 import kuvaev.mainapp.eatit_server.R;
 
 public class NotificationHelper {
-    private static final String ABD_CHANNEL_ID = "com.example.asus.androideatitserver.ABDULKARIM";
+    private static final String ABD_CHANNEL_ID = "kuvaev.mainapp.eatit_server.KUVAEV";
     private static final String ABD_CHANNEL_NAME = "Eat it";
 
     private NotificationManager manager;
@@ -58,10 +58,7 @@ public class NotificationHelper {
                 .setSmallIcon(R.mipmap.ic_start)
                 .setSound(soundUri)
                 .setAutoCancel(false);
-
     }
-
-    //maybe get error in android oreo in line : setSmallIcon() becuz we pass argument Mipmap, must use drawable
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public android.app.Notification.Builder getEatItChannelNotification(String title , String  body ,
@@ -72,6 +69,5 @@ public class NotificationHelper {
                 .setSmallIcon(R.mipmap.ic_start)
                 .setSound(soundUri)
                 .setAutoCancel(false);
-
     }
 }
