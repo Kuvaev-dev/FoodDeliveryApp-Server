@@ -14,7 +14,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
-import android.location.LocationRequest;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,6 +22,7 @@ import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -287,7 +287,7 @@ public class TrackingOrderActivity  extends FragmentActivity implements OnMapRea
             return;
         }
 
-        LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient , mLocationRequest , this);
+        LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, (com.google.android.gms.location.LocationListener) this);
     }
 
     @Override
@@ -312,6 +312,7 @@ public class TrackingOrderActivity  extends FragmentActivity implements OnMapRea
         }
     }
 
+    @SuppressLint("StaticFieldLeak")
     private class ParseTask extends AsyncTask<String, Integer, List<List<HashMap<String , String>>>> {
         ProgressDialog progressDialog = new ProgressDialog(TrackingOrderActivity.this);
 

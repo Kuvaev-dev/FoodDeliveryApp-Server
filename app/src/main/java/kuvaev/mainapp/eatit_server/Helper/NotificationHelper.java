@@ -17,9 +17,11 @@ public class NotificationHelper {
     private static final String ABD_CHANNEL_NAME = "Eat it";
 
     private NotificationManager manager;
+    private final Context context;
 
     public NotificationHelper(Context base) {
         super();
+        context = base;
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)  //only working this function if API is 26 or higher
             createChannel();
@@ -40,9 +42,8 @@ public class NotificationHelper {
     }
 
     public NotificationManager getManager() {
-
         if (manager == null)
-            manager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+            manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
         return manager;
     }
@@ -51,7 +52,7 @@ public class NotificationHelper {
     public android.app.Notification.Builder getEatItChannelNotification(String title , String  body ,
                                                                         PendingIntent contentIntent ,
                                                                         Uri soundUri){
-        return new android.app.Notification.Builder(getApplicationContext() , ABD_CHANNEL_ID)
+        return new android.app.Notification.Builder(context.getApplicationContext(), ABD_CHANNEL_ID)
                 .setContentIntent(contentIntent)
                 .setContentTitle(title)
                 .setContentText(body)
@@ -63,7 +64,7 @@ public class NotificationHelper {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public android.app.Notification.Builder getEatItChannelNotification(String title , String  body ,
                                                                         Uri soundUri){
-        return new android.app.Notification.Builder(getApplicationContext() , ABD_CHANNEL_ID)
+        return new android.app.Notification.Builder(context.getApplicationContext() , ABD_CHANNEL_ID)
                 .setContentTitle(title)
                 .setContentText(body)
                 .setSmallIcon(R.mipmap.ic_start)

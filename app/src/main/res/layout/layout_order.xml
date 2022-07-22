@@ -28,7 +28,7 @@
 
                 <TextView
                     android:id="@+id/order_id"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:gravity="center_vertical|start"
                     android:textAllCaps="true"
                     android:textStyle="bold"
@@ -38,7 +38,7 @@
 
                 <TextView
                     android:id="@+id/order_date"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:gravity="center_vertical|start"
                     android:textAllCaps="true"
                     android:textStyle="italic"
@@ -48,7 +48,7 @@
 
                 <TextView
                     android:id="@+id/order_status"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:gravity="center_vertical|start"
                     android:textAllCaps="true"
                     android:textStyle="italic"
@@ -58,7 +58,7 @@
 
                 <TextView
                     android:id="@+id/order_phone"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:gravity="center_vertical|start"
                     android:textAllCaps="true"
                     android:textStyle="italic"
@@ -68,7 +68,7 @@
 
                 <TextView
                     android:id="@+id/order_address"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:gravity="center_vertical|start"
                     android:textAllCaps="true"
                     android:textStyle="italic"
@@ -80,7 +80,7 @@
             <ImageView
                 android:id="@+id/card_item_count"
                 android:layout_gravity="center_vertical|end"
-                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
                 android:scaleType="centerCrop"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
@@ -100,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/lo_edit_text"
                 app:cornerRadius="0dp"
-                app:fButtonColor="@android:color/white"/>
+                app:buttonColor="@color/white"/>
 
             <info.hoang8f.widget.FButton
                 android:id="@+id/btnRemove"
@@ -109,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/lo_remove_text"
                 app:cornerRadius="0dp"
-                app:fButtonColor="@android:color/white"/>
+                app:buttonColor="@color/white"/>
 
             <info.hoang8f.widget.FButton
                 android:id="@+id/btnDetail"
@@ -118,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/lo_detail_text"
                 app:cornerRadius="0dp"
-                app:fButtonColor="@android:color/white"/>
+                app:buttonColor="@color/white"/>
 
             <info.hoang8f.widget.FButton
                 android:id="@+id/btnDescription"
@@ -127,7 +127,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/lo_description_text"
                 app:cornerRadius="0dp"
-                app:fButtonColor="@android:color/white"/>
+                app:buttonColor="@color/white"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -5,18 +5,22 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
@@ -81,18 +85,25 @@ public class BannerActivity extends AppCompatActivity {
 
     @SuppressLint("NotifyDataSetChanged")
     private void loadListBanner() {
-        adapter = new FirebaseRecyclerAdapter<Banner, BannerViewHolder>(
-                Banner.class,
-                R.layout.layout_banner,
-                BannerViewHolder.class,
-                banners
-        ) {
+        FirebaseRecyclerOptions<Banner> options = new FirebaseRecyclerOptions.Builder<Banner>().build();
+        new FirebaseRecyclerAdapter<Banner, BannerViewHolder>(options) {
             @Override
-            private void populateViewHolder(BannerViewHolder viewHolder, Banner model, int position) {
-                viewHolder.banner_name.setText(model.getName());
-                Picasso.with(getBaseContext())
+            protected void onBindViewHolder(@NonNull BannerViewHolder bannerViewHolder,
+                                            int position,
+                                            @NonNull Banner model) {
+                bannerViewHolder.banner_name.setText(model.getName());
+                Picasso.get()
                         .load(model.getImage())
-                        .into(viewHolder.banner_image);
+                        .into(bannerViewHolder.banner_image);
+            }
+
+            @NonNull
+            @Override
+            public BannerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.activity_banner, parent, false);
+
+                return new BannerViewHolder(view);
             }
         };
         adapter.notifyDataSetChanged();

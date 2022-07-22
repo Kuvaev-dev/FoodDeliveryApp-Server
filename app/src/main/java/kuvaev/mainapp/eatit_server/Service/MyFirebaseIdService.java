@@ -8,15 +8,14 @@ import androidx.annotation.Nullable;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import kuvaev.mainapp.eatit_server.Common.Common;
 import kuvaev.mainapp.eatit_server.Model.Token;
 
 public class MyFirebaseIdService extends Service {
     public void onTokenRefresh() {
-        super.onTokenRefresh();
-
-        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+        String refreshedToken = FirebaseMessaging.getInstance().getToken().toString();
         updateToService(refreshedToken);
     }
 

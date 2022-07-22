@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import kuvaev.mainapp.eatit_server.Common.Common;
 import kuvaev.mainapp.eatit_server.Interface.ItemClickListener;
-import kuvaev.mainapp.eatit_server.R;
 
 public class FoodViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnCreateContextMenuListener {
     public TextView food_name;
@@ -20,15 +19,8 @@ public class FoodViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     public FoodViewHolder(View itemView) {
         super(itemView);
 
-        food_name = itemView.findViewById(R.id.food_name);
-        food_image = itemView.findViewById(R.id.food_image);
-
         itemView.setOnCreateContextMenuListener(this); //For Context Menu
         itemView.setOnClickListener(this);
-    }
-
-    public void setItemClickListener(ItemClickListener itemClickListener) {
-        this.itemClickListener = itemClickListener;
     }
 
     @Override

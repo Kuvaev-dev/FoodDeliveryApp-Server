@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="8dp"
-            app:fButtonColor="@android:color/white"
+            app:buttonColor="@color/white"
             app:shadowColor="@color/colorPrimary"
             app:shadowEnabled="true"
             app:shadowHeight="5dp"

@@ -30,7 +30,7 @@
 
                 <TextView
                     android:id="@+id/order_id"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:gravity="center_vertical|start"
                     android:textAllCaps="true"
                     android:textStyle="bold"
@@ -40,7 +40,7 @@
 
                 <TextView
                     android:id="@+id/order_phone"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:gravity="center_vertical|start"
                     android:textAllCaps="true"
                     android:textStyle="italic"
@@ -50,7 +50,7 @@
 
                 <TextView
                     android:id="@+id/order_total"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:gravity="center_vertical|start"
                     android:textAllCaps="true"
                     android:textStyle="italic"
@@ -60,7 +60,7 @@
 
                 <TextView
                     android:id="@+id/order_address"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:gravity="center_vertical|start"
                     android:textAllCaps="true"
                     android:textStyle="italic"
@@ -70,7 +70,7 @@
 
                 <TextView
                     android:id="@+id/order_comment"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:gravity="center_vertical|start"
                     android:textAllCaps="true"
                     android:textStyle="italic"
@@ -94,7 +94,7 @@
             android:textColor="@android:color/white"
             android:textSize="30sp"
             android:layout_marginBottom="20dp"
-            android:layout_marginLeft="8dp"/>
+            android:layout_marginStart="8dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/lstFood"

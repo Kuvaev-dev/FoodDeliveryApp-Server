@@ -1,5 +1,6 @@
 package kuvaev.mainapp.eatit_server;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -7,10 +8,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -56,19 +60,25 @@ public class ShipperManagementActivity extends AppCompatActivity {
     }
 
     private void loadAllShippers() {
-        adapter = new FirebaseRecyclerAdapter<Shipper, ShipperViewHolder>(
-                Shipper.class,
-                R.layout.layout_shipper,
-                ShipperViewHolder.class,
-                shippers
-        ) {
+        FirebaseRecyclerOptions<Shipper> options = new FirebaseRecyclerOptions.Builder<Shipper>().build();
+        new FirebaseRecyclerAdapter<Shipper, ShipperViewHolder>(options) {
             @Override
-            protected void populateViewHolder(ShipperViewHolder viewHolder, final Shipper model, final int position) {
-                viewHolder.shipper_phone.setText(model.getPhone());
-                viewHolder.shipper_name.setText(model.getName());
+            protected void onBindViewHolder(@NonNull ShipperViewHolder bannerViewHolder,
+                                            int position,
+                                            @NonNull Shipper model) {
+                bannerViewHolder.shipper_phone.setText(model.getPhone());
+                bannerViewHolder.shipper_name.setText(model.getName());
+                bannerViewHolder.btn_edit.setOnClickListener(v -> showEditDialog(adapter.getRef(position).getKey(), model));
+                bannerViewHolder.btn_remove.setOnClickListener(v -> removeShipper(adapter.getRef(position).getKey()));
+            }
 
-                viewHolder.btn_edit.setOnClickListener(v -> showEditDialog(adapter.getRef(position).getKey(), model));
-                viewHolder.btn_remove.setOnClickListener(v -> removeShipper(adapter.getRef(position).getKey()));
+            @NonNull
+            @Override
+            public ShipperViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.activity_shipper_management, parent, false);
+
+                return new ShipperViewHolder(view);
             }
         };
         recyclerView.setAdapter(adapter);

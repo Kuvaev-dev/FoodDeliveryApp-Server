@@ -1,5 +1,6 @@
 package kuvaev.mainapp.eatit_server;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,13 +11,16 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
@@ -30,7 +34,9 @@ import java.util.Objects;
 import java.util.UUID;
 
 import kuvaev.mainapp.eatit_server.Common.Common;
+import kuvaev.mainapp.eatit_server.Model.Banner;
 import kuvaev.mainapp.eatit_server.Model.Food;
+import kuvaev.mainapp.eatit_server.ViewHolder.BannerViewHolder;
 import kuvaev.mainapp.eatit_server.ViewHolder.FoodViewHolder;
 
 public class FoodListActivity extends AppCompatActivity {
@@ -121,19 +127,26 @@ public class FoodListActivity extends AppCompatActivity {
 
     @SuppressLint("NotifyDataSetChanged")
     private void loadListFood(String categoryId) {
-        adapter = new FirebaseRecyclerAdapter<Food, FoodViewHolder>(
-                Food.class,
-                R.layout.food_item,
-                FoodViewHolder.class,
-                foodList.orderByChild("menuId").equalTo(categoryId)
-        ) {
+        FirebaseRecyclerOptions<Food> options = new FirebaseRecyclerOptions.Builder<Food>().build();
+        new FirebaseRecyclerAdapter<Food, FoodViewHolder>(options) {
             @Override
-            private void populateViewHolder(FoodViewHolder viewHolder, Food model, int position) {
-                viewHolder.food_name.setText(model.getName());
-                Picasso.with(getBaseContext())
+            protected void onBindViewHolder(@NonNull FoodViewHolder foodViewHolder,
+                                            int position,
+                                            @NonNull Food model) {
+                foodViewHolder.food_name.setText(model.getName());
+                foodList.orderByChild("menuId").equalTo(categoryId);
+                Picasso.get()
                         .load(model.getImage())
-                        .into(viewHolder.food_image);
-                viewHolder.setItemClickListener((view, position1, isLongClick) -> {});
+                        .into(foodViewHolder.food_image);
+            }
+
+            @NonNull
+            @Override
+            public FoodViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.activity_food_list, parent, false);
+
+                return new FoodViewHolder(view);
             }
         };
 

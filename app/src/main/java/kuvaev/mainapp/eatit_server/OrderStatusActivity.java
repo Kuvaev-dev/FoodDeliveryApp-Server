@@ -10,17 +10,20 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.jaredrummler.materialspinner.MaterialSpinner;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,11 +32,13 @@ import java.util.Map;
 import java.util.Objects;
 
 import kuvaev.mainapp.eatit_server.Common.Common;
+import kuvaev.mainapp.eatit_server.Model.Banner;
 import kuvaev.mainapp.eatit_server.Model.CustomResponse;
 import kuvaev.mainapp.eatit_server.Model.DataMessage;
 import kuvaev.mainapp.eatit_server.Model.Request;
 import kuvaev.mainapp.eatit_server.Model.Token;
 import kuvaev.mainapp.eatit_server.Remote.APIService;
+import kuvaev.mainapp.eatit_server.ViewHolder.BannerViewHolder;
 import kuvaev.mainapp.eatit_server.ViewHolder.OrderViewHolder;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -68,42 +73,43 @@ public class OrderStatusActivity extends AppCompatActivity {
 
     @SuppressLint("NotifyDataSetChanged")
     private void loadOrders() {
-
-        adapter = new FirebaseRecyclerAdapter<Request, OrderViewHolder>(
-                Request.class,
-                R.layout.layout_order,
-                OrderViewHolder.class,
-                requests
-        ) {
-            @NonNull
+        FirebaseRecyclerOptions<Request> options = new FirebaseRecyclerOptions.Builder<Request>().build();
+        new FirebaseRecyclerAdapter<Request, OrderViewHolder>(options) {
             @Override
-            public OrderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                return null;
-            }
+            protected void onBindViewHolder(@NonNull OrderViewHolder orderViewHolder,
+                                            int position,
+                                            @NonNull Request model) {
+                orderViewHolder.txtOrderId.setText(adapter.getRef(position).getKey());
+                orderViewHolder.txtOrderStatus.setText(Common.convertCodeToStatus(model.getStatus()));
+                orderViewHolder.txtOrderPhone.setText(model.getPhone());
+                orderViewHolder.txtOrderAddress.setText(model.getAddress());
+                orderViewHolder.txtOrderDate.setText(Common.getData(Long.parseLong(Objects.requireNonNull(adapter.getRef(position).getKey()))));
 
-            @Override
-            protected void onBindViewHolder(@NonNull OrderViewHolder holder, int position, @NonNull Request model) {
-                holder.txtOrderId.setText(adapter.getRef(position).getKey());
-                holder.txtOrderStatus.setText(Common.convertCodeToStatus(model.getStatus()));
-                holder.txtOrderPhone.setText(model.getPhone());
-                holder.txtOrderAddress.setText(model.getAddress());
-                holder.txtOrderDate.setText(Common.getData(Long.parseLong(Objects.requireNonNull(adapter.getRef(position).getKey()))));
-
-                holder.btnEdit.setOnClickListener(v -> showUpdateDialog(adapter.getRef(position).getKey(), adapter.getItem(position)));
-                holder.btnRemove.setOnClickListener(v -> deleteOrder(adapter.getRef(position).getKey()));
-                holder.btnDetail.setOnClickListener(v -> {
+                orderViewHolder.btnEdit.setOnClickListener(v -> showUpdateDialog(adapter.getRef(position).getKey(), adapter.getItem(position)));
+                orderViewHolder.btnRemove.setOnClickListener(v -> deleteOrder(adapter.getRef(position).getKey()));
+                orderViewHolder.btnDetail.setOnClickListener(v -> {
                     Intent orderDetail = new Intent(OrderStatusActivity.this, OrderDetailActivity.class);
                     Common.currentRequest = model;
                     orderDetail.putExtra("OrderId", adapter.getRef(position).getKey());
                     startActivity(orderDetail);
                 });
-                holder.btnDescription.setOnClickListener(v -> {
+                orderViewHolder.btnDescription.setOnClickListener(v -> {
                     Intent trackingOrder = new Intent(OrderStatusActivity.this, TrackingOrderActivity.class);
                     Common.currentRequest = model;
                     startActivity(trackingOrder);
                 });
             }
+
+            @NonNull
+            @Override
+            public OrderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.activity_order_status, parent, false);
+
+                return new OrderViewHolder(view);
+            }
         };
+
         adapter.notifyDataSetChanged();
         recyclerView.setAdapter(adapter);
     }

@@ -26,10 +26,7 @@ import kuvaev.mainapp.eatit_server.OrderStatusActivity;
 import kuvaev.mainapp.eatit_server.R;
 
 public class MyFirebaseMessaging extends Service {
-    @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        super.onMessageReceived(remoteMessage);
-
         remoteMessage.getData();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
