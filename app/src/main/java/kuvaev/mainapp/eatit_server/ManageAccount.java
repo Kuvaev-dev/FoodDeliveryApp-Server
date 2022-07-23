@@ -61,12 +61,7 @@ public class ManageAccount extends AppCompatActivity {
 
         //Init View
         fabAddStaff = (FloatingActionButton) findViewById(R.id.fab_add_staff);
-        fabAddStaff.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showCreateAccountDialog();
-            }
-        });
+        fabAddStaff.setOnClickListener(v -> showCreateAccountDialog());
 
         db = FirebaseDatabase.getInstance();
         users = db.getReference(Common.Staff_TABLE);

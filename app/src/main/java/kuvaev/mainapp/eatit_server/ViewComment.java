@@ -1,7 +1,6 @@
 package kuvaev.mainapp.eatit_server;
 
 import android.content.Context;
-import android.media.Rating;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +22,7 @@ import com.squareup.picasso.Picasso;
 
 import kuvaev.mainapp.eatit_server.Common.Common;
 import kuvaev.mainapp.eatit_server.Common.NumberOfFood;
+import kuvaev.mainapp.eatit_server.Model.Rating;
 import kuvaev.mainapp.eatit_server.ViewHolder.ShowCommentViewHolder;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;

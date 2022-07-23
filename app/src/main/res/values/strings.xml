@@ -98,4 +98,6 @@
 
     <string name="uol_status">Status:</string>
     <string name="uol_shipper">Shipper:</string>
+    <string name="navigation_drawer_open" />
+    <string name="navigation_drawer_close" />
 </resources>

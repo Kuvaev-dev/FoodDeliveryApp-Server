@@ -221,7 +221,6 @@ public class TrackingOrder extends FragmentActivity implements OnMapReadyCallbac
         });
     }
 
-
     private void createLocationRequest() {
         mLocationRequest = new LocationRequest();
         mLocationRequest.setInterval(UPDATE_INTERVAL);

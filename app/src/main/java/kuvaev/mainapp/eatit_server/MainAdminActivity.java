@@ -1,6 +1,7 @@
 package kuvaev.mainapp.eatit_server;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -43,6 +44,8 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 import static kuvaev.mainapp.eatit_server.Common.Common.PICK_IMAGE_REQUEST;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
@@ -71,7 +74,6 @@ public class MainAdminActivity extends AppCompatActivity
     // Add new menu layout
     MaterialEditText edtName;
     FButton btnUpload, btnSelect;
-    FButton btnDelete, btnCancel;
 
     Category newCategory;
     Uri saveUri;
@@ -197,10 +199,18 @@ public class MainAdminActivity extends AppCompatActivity
     }
 
     private void chooseImage() {
+        ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        Intent intent = new Intent();
+                        intent.setType("image/*");
+                        intent.setAction(Intent.ACTION_GET_CONTENT);
+                    }
+                });
+
         Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Image"), PICK_IMAGE_REQUEST);
+        someActivityResultLauncher.launch(Intent.createChooser(intent, "Select Image"));
     }
 
     private void uploadImage() {
@@ -216,7 +226,7 @@ public class MainAdminActivity extends AppCompatActivity
                 Toast.makeText(MainAdminActivity.this, "Uploaded!!!", Toast.LENGTH_SHORT).show();
                 imageFolder.getDownloadUrl().addOnSuccessListener(uri -> {
                     // set value for newCategory if image upload and we can get download link
-                    newCategory = new Category(edtName.getText().toString(), uri.toString());
+                    newCategory = new Category(Objects.requireNonNull(edtName.getText()).toString(), uri.toString());
                 });
             }).addOnFailureListener(e -> {
                 mDialog.dismiss();
