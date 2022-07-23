@@ -6,37 +6,70 @@
         <entry key="..\:/EatIt_Server/app/src/main/res/layout/activity_main.xml" value="0.19322916666666667" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/drawable-v24/ic_add_black_24dp.xml" value="0.128" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/drawable-v24/side_nav_bar.xml" value="0.1425" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.125" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/drawable/ic_menu_manage.xml" value="0.1725" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/activity_admin_scrolling.xml" value="0.19322916666666667" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/activity_banner.xml" value="0.19322916666666667" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/activity_food_list.xml" value="0.19322916666666667" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/activity_home.xml" value="0.19322916666666667" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/activity_inc_account.xml" value="0.1921875" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/activity_main_admin.xml" value="0.19322916666666667" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/activity_manage_account.xml" value="0.19322916666666667" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/activity_order_detail.xml" value="0.19322916666666667" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/activity_order_status.xml" value="0.19322916666666667" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/activity_scrolling.xml" value="0.19322916666666667" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/activity_send_message.xml" value="0.1" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/activity_shipper_management.xml" value="0.19322916666666667" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/activity_show_comment.xml" value="0.19322916666666667" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/activity_sign_in.xml" value="0.1" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/activity_sign_in_admin.xml" value="0.11005434782608696" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/activity_tracking_order.xml" value="0.19322916666666667" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/add_new_banner.xml" value="0.19322916666666667" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/add_new_food.xml" value="0.19322916666666667" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/add_new_food_layout.xml" value="0.19322916666666667" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/add_new_menu_layout.xml" value="0.19322916666666667" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/app_bar_home.xml" value="0.19322916666666667" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/app_bar_main_admin.xml" value="0.19322916666666667" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/app_bar_ome.xml" value="0.19322916666666667" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/banner_layout.xml" value="0.19322916666666667" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/confirm_delete_layout.xml" value="0.19322916666666667" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/confirm_signout_layout.xml" value="0.19322916666666667" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/content_admin_scrolling.xml" value="0.19322916666666667" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/content_home.xml" value="0.19322916666666667" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/content_main_admin.xml" value="0.1921875" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/content_scrolling.xml" value="0.1921875" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/create_account_layout.xml" value="0.19322916666666667" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/create_shipper_layout.xml" value="0.19322916666666667" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/food_item.xml" value="0.19322916666666667" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/layout_add_new_banner.xml" value="0.1" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/layout_add_new_food.xml" value="0.1" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/layout_add_new_menu.xml" value="0.1" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/layout_banner.xml" value="0.19322916666666667" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/layout_confirm_delete.xml" value="0.1921875" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/layout_confirm_signout.xml" value="0.1921875" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/layout_create_account.xml" value="0.19322916666666667" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/layout_create_shipper.xml" value="0.19322916666666667" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/layout_create_sipper.xml" value="0.19322916666666667" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/layout_order.xml" value="0.1" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/layout_order_detail.xml" value="0.19322916666666667" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/layout_shipper.xml" value="0.1" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/layout_show_comment.xml" value="0.1921875" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/layout_update_order.xml" value="0.19322916666666667" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/menu_item.xml" value="0.19322916666666667" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/nav_header_home.xml" value="0.19322916666666667" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/nav_header_main_admin.xml" value="0.1921875" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/order_detail_layout.xml" value="0.19322916666666667" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/order_layout.xml" value="0.19322916666666667" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/shipper_layout.xml" value="0.19322916666666667" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/show_comment_layout.xml" value="0.19322916666666667" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/layout/update_order_layout.xml" value="0.19322916666666667" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/menu/activity_home_drawer.xml" value="0.5" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/menu/activity_main_admin_drawer.xml" value="0.19322916666666667" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/menu/activity_main_drawer.xml" value="0.5" />
         <entry key="..\:/diploma/EatIt_Server/app/src/main/res/menu/home.xml" value="0.19322916666666667" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/menu/menu_admin_scrolling.xml" value="0.19322916666666667" />
+        <entry key="..\:/diploma/EatIt_Server/app/src/main/res/menu/menu_scrolling.xml" value="0.19322916666666667" />
       </map>
     </option>
   </component>

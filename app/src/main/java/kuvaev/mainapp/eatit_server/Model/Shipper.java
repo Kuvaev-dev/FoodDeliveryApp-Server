@@ -1,15 +1,17 @@
 package kuvaev.mainapp.eatit_server.Model;
 
 public class Shipper {
-    private String name , phone , password;
+    private String name;
+    private String password;
+    private String phone;
+    private String isstaff;
+    private String isadmin;
 
-    public Shipper() {
-    }
+    public Shipper() { }
 
-    public Shipper(String name, String phone, String password) {
-        this.name = name;
-        this.phone = phone;
-        this.password = password;
+    public Shipper(String Pname, String Ppassword){
+        name = Pname;
+        password = Ppassword;
     }
 
     public String getName() {
@@ -20,6 +22,14 @@ public class Shipper {
         this.name = name;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getPhone() {
         return phone;
     }
@@ -28,11 +38,19 @@ public class Shipper {
         this.phone = phone;
     }
 
-    public String getPassword() {
-        return password;
+    public String getIsstaff() {
+        return isstaff;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setIsstaff(String isstaff) {
+        this.isstaff = isstaff;
+    }
+
+    public String getIsadmin() {
+        return isadmin;
+    }
+
+    public void setIsadmin(String isadmin) {
+        this.isadmin = isadmin;
     }
 }

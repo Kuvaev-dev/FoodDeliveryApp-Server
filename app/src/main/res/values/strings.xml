@@ -1,74 +1,101 @@
 <resources>
-    <string name="app_name">EatIt_Server</string>
-    <string name="title_activity_home">Home</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="am_sign_in_as_admin">Sign In As Admin</string>
+    <string name="am_sign_in_as_staff">Sign In As Staff</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="main_fbutton_sign_in_text">Sign In</string>
-    <string name="slogan">Per Aspera Ad Astra</string>
-    <string name="od_order_id_text">Order ID</string>
-    <string name="od_order_phone_text">Order Phone</string>
-    <string name="od_order_total_text">$1000</string>
-    <string name="od_order_detail_text">Address</string>
-    <string name="od_comment_text">Comment</string>
-    <string name="od_detail_text">Detail</string>
-    <string name="sm_send_message_text">Send Message</string>
-    <string name="sm_title_text">Title</string>
-    <string name="sm_message_text">Message</string>
-    <string name="si_sign_in_text">Sign In</string>
-    <string name="si_password_hint">Password</string>
-    <string name="si_password_text">1234</string>
-    <string name="si_phone_number_hint">Phone Number</string>
-    <string name="si_phone_number_text">0912</string>
-    <string name="anf_upload_text">UPLOAD</string>
-    <string name="anf_select_text">SELECT</string>
-    <string name="anf_discount_text">Discount</string>
-    <string name="anf_price_text">Price</string>
-    <string name="anf_description_text">Description</string>
-    <string name="anf_name_text">Name</string>
-    <string name="anm_upload_text">UPLOAD</string>
-    <string name="anm_select_text">SELECT</string>
-    <string name="anm_name_text">Name</string>
-    <string name="lb_add_banner_text">Name of Banner</string>
-    <string name="ch_password_hint">Password</string>
-    <string name="ch_numberphone_hint">NumberPhone</string>
-    <string name="ch_name_text">Name</string>
-    <string name="fi_food_text">Name of Food</string>
-    <string name="mi_name_of_menu_text">Name of Menu</string>
-    <string name="hh_fullname_text">John</string>
-    <string name="od_product_discount_text">Product Discount</string>
-    <string name="od_product_price_text">Product Price</string>
-    <string name="od_product_quantity_text">Product Quantity</string>
-    <string name="od_product_name_text">Product Name</string>
-    <string name="lo_description_text">Description</string>
-    <string name="lo_detail_text">Detail</string>
-    <string name="lo_remove_text">Remove</string>
-    <string name="lo_edit_text">Edit</string>
-    <string name="lo_address_text">Address</string>
-    <string name="lo_order_phone_text">123456789</string>
-    <string name="lo_order_status_text">Status</string>
-    <string name="lo_order_date_text">Order Date</string>
-    <string name="lo_order_id_text">#111111</string>
-    <string name="ls_remove_text">Remove</string>
-    <string name="ls_edit_text">Edit</string>
-    <string name="ls_shipper_phone_text">Shipper Phone</string>
-    <string name="ls_shipper_name_text">Shipper Name</string>
-    <string name="uo_shipper_text">Shipper :</string>
-    <string name="uo_status_text">Status :</string>
-    <string name="anb_upload_text">UPLOAD</string>
-    <string name="anb_select_text">SELECT</string>
-    <string name="anb_food_name_text">Food Name</string>
-    <string name="anb_food_id_text">Food Id</string>
-    <string name="str_image_selected">Image Selected !</string>
-    <string name="main_sign_in_text">Sign In</string>
-    <string name="od_address_text">Address</string>
-    <string name="od_cost_text">$1000</string>
-    <string name="lb_name_of_banner">Name of Banner</string>
+    <string name="ama_username">Username</string>
+    <string name="ama_password">Password</string>
+    <string name="ama_role">Role</string>
+
+    <string name="aod_order_id">Order Id</string>
+    <string name="aod_order_phone">Order Phone</string>
+    <string name="aod_total">1000</string>
+    <string name="aod_address">Address</string>
+    <string name="aod_comment">Comment</string>
+    <string name="aod_detail">Detail</string>
+
+    <string name="asm_message">Message</string>
+    <string name="asm_title">Title</string>
+    <string name="asm__message">Message</string>
+    <string name="asm_submit_message">Submit Message</string>
+
+    <string name="asi_staff">Staff</string>
+    <string name="asi_phone_number">Phone Number</string>
+    <string name="asi_phone_number_val">0128688032</string>
+    <string name="asi_password">Password</string>
+    <string name="asi_password_val">chau1995</string>
+    <string name="asi_sign_in_as_staff">Sign In As Staff</string>
+
+    <string name="asia_admin">Admin</string>
+    <string name="asia_phone_number">Phone Number</string>
+    <string name="asia_phone_number_val">0128688032</string>
+    <string name="asia_password">Password</string>
+    <string name="asia_password_val">chau1995</string>
+    <string name="asia_sign_in_as_admin">Sign In As Admin</string>
+
+    <string name="ato_distance">DISTANCE:</string>
+    <string name="ato_duration">DURATION:</string>
+    <string name="ato_time_reach">TIME REACH:</string>
+
+    <string name="anb_food_id">Food Id</string>
+    <string name="anb_food_name">Food Name</string>
+    <string name="anb_btn_select">SELECT</string>
+    <string name="anb_btn_upload">UPLOAD</string>
+
+    <string name="lanf_name">Name</string>
+    <string name="lanf_description">Description</string>
+    <string name="lanf_price">Price</string>
+    <string name="lanf_btn_select">SELECT</string>
+    <string name="lanf_btn_upload">UPLOAD</string>
+
+    <string name="anml_name">Name</string>
+    <string name="anml_btn_select">SELECT</string>
+    <string name="anml_btn_upload">UPLOAD</string>
+
+    <string name="bl_name_of_banner">Name of Banner</string>
+
+    <string name="cas_admin">Admin</string>
+
+    <string name="cs_staff">Staff</string>
+
+    <string name="cal_phone_number">Phone Number</string>
+    <string name="cal_phone_number_val">+60</string>
+    <string name="cal_username">Username</string>
+    <string name="cal_password">Password</string>
+
+    <string name="csl_phone_number">Phone Number</string>
+    <string name="csl_phone_shipper_val">+60</string>
+    <string name="csl_username">Username</string>
+    <string name="csl_password">Password</string>
+
+    <string name="fi_name_of_food">Name of Food</string>
+
+    <string name="lca_phone_number_val">+60</string>
+
+    <string name="mi_name_of_menu">Name of Menu</string>
+
+    <string name="odl_product_name">Product Name</string>
+    <string name="odl_product_quantity">Product Quantity</string>
+    <string name="odl_product_price">Product Price</string>
+
+    <string name="ol_order_id">Order Id</string>
+    <string name="ol_order_date">Order Date</string>
+    <string name="ol_order_name">Order Name</string>
+    <string name="ol_status">Status</string>
+    <string name="ol_phone_number_val">0128688032</string>
+    <string name="aol_address">Address</string>
+    <string name="ol_price">Price</string>
+    <string name="ol_btn_edit">Edit</string>
+    <string name="ol_btn_remove">Remove</string>
+    <string name="ol_btn_detail">Detail</string>
+    <string name="ol_btn_direction">Direction</string>
+
+    <string name="sl_shipper_phone">Shipper Phone</string>
+    <string name="sl_shipper_name">Shipper Name</string>
+    <string name="sl_shipper_password">Shipper Password</string>
+
+    <string name="scl_food_name">Food 01</string>
+    <string name="scl_user_phone">RM 9.90</string>
+
+    <string name="uol_status">Status:</string>
+    <string name="uol_shipper">Shipper:</string>
 </resources>

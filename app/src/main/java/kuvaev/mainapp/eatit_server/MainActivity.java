@@ -1,31 +1,38 @@
 package kuvaev.mainapp.eatit_server;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Context;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnSignIn;
-    TextView txtSlogan;
+    Button btnSignInAsAdmin, btnSignInAsStaff;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
-        btnSignIn = findViewById(R.id.btnSignIn);
-        txtSlogan = findViewById(R.id.txtslogan);
+        btnSignInAsAdmin = (Button)findViewById(R.id.btnSignInAsAdmin);
+        btnSignInAsStaff = (Button)findViewById(R.id.btnSignInAsStaff);
 
-        Typeface typeface = Typeface.createFromAsset(getAssets() , "fonts/NABILA.TTF");
-        txtSlogan.setTypeface(typeface);
-
-        btnSignIn.setOnClickListener(v -> {
-            Intent signIn = new Intent(MainActivity.this , SignInActivity.class);
-            startActivity(signIn);
+        btnSignInAsStaff.setOnClickListener(v -> {
+            Intent signInAsStaff = new Intent(MainActivity.this, SignInAsStaff.class);
+            startActivity(signInAsStaff);
+        });
+        btnSignInAsAdmin.setOnClickListener(v -> {
+            Intent signInAsAdmin = new Intent(MainActivity.this, SignInAsAdmin.class);
+            startActivity(signInAsAdmin);
         });
     }
 }

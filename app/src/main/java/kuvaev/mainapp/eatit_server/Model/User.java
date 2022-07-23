@@ -1,45 +1,58 @@
 package kuvaev.mainapp.eatit_server.Model;
 
+import com.google.firebase.database.DatabaseReference;
+
 public class User {
-    private String Name , Password , Phone , IsStaff;
+    private String name;
+    private String password;
+    private String phone;
+    private String isstaff;
+    private String isadmin;
 
-    public User() {
-    }
+    public User() { }
 
-    public User(String name, String password) {
-        Name = name;
-        Password = password;
+    public User(String Pname, String Ppassword){
+        name = Pname;
+        password = Ppassword;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
     public String getPhone() {
-        return Phone;
+        return phone;
     }
 
     public void setPhone(String phone) {
-        Phone = phone;
+        this.phone = phone;
     }
 
-    public String getIsStaff() {
-        return IsStaff;
+    public String getIsstaff() {
+        return isstaff;
     }
 
-    public void setIsStaff(String isStaff) {
-        IsStaff = isStaff;
+    public void setIsstaff(String isstaff) {
+        this.isstaff = isstaff;
+    }
+
+    public String getIsadmin() {
+        return isadmin;
+    }
+
+    public void setIsadmin(String isadmin) {
+        this.isadmin = isadmin;
     }
 }

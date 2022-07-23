@@ -24,28 +24,25 @@
         android:supportsRtl="true"
         tools:targetApi="m">
         <activity
-            android:name=".SignInActivity"
-            android:exported="false" />
-        <activity
-            android:name=".TrackingOrderActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ShipperManagementActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SendMessageActivity"
-            android:exported="false" />
-        <activity
-            android:name=".OrderStatusActivity"
-            android:exported="false" />
-        <activity
-            android:name=".OrderDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".FoodListActivity"
-            android:exported="false" />
-        <activity
             android:name=".BannerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminScrollingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ManageAccount"
+            android:exported="false" />
+        <activity
+            android:name=".ScrollingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignInAsStaff"
+            android:exported="false" />
+        <activity
+            android:name=".ViewComment"
             android:exported="false" />
         <activity
             android:name=".Home"

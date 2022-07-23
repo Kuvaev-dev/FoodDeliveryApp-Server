@@ -4,51 +4,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/my_bg"
+    android:background="@drawable/firefoxwallpaper"
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:src="@drawable/logo_eat_it"
-            android:contentDescription="@null"/>
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/coollogo"
+            />
 
-        <TextView
-            android:id="@+id/txtslogan"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:text="@string/slogan"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:gravity="center"/>
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="2118-funky-chicken.json"
+            app:lottie_loop="true"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:weightSum="1">
+        android:layout_alignParentStart="true"
+        android:orientation="horizontal">
 
         <info.hoang8f.widget.FButton
-            android:id="@+id/btnSignIn"
-            android:text="@string/main_sign_in_text"
-            android:textColor="@color/colorPrimary"
-            android:layout_width="0dp"
+            android:id="@+id/btnSignInAsAdmin"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="4dp"
             android:layout_weight="1"
-            android:layout_margin="8dp"
-            app:buttonColor="@color/white"
-            app:shadowColor="@color/colorPrimary"
+            android:text="@string/am_sign_in_as_admin"
+            android:textColor="@android:color/white"
+            app:cornerRadius="8dp"
+            app:fButtonColor="@color/fbutton_color_green_sea"
+            app:shadowColor="@android:color/black"
             app:shadowEnabled="true"
-            app:shadowHeight="5dp"
-            app:cornerRadius="4dp"/>
+            app:shadowHeight="5dp"/>
+
+        <info.hoang8f.widget.FButton
+            android:id="@+id/btnSignInAsStaff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:text="@string/am_sign_in_as_staff"
+            android:textColor="@android:color/white"
+            app:cornerRadius="8dp"
+            app:fButtonColor="@color/fbutton_color_green_sea"
+            app:shadowColor="@android:color/black"
+            app:shadowEnabled="true"
+            app:shadowHeight="5dp"/>
     </LinearLayout>
 </RelativeLayout>

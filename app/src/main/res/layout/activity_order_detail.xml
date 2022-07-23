@@ -4,14 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/my_bg"
-    tools:context=".OrderDetailActivity">
+    tools:context=".OrderDetail"
+    android:background="@drawable/maintheme">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/order_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/order_info"
         android:layout_margin="8dp"
+        android:backgroundTint="@color/colorGold3"
+        app:cardBackgroundColor="#FFFFFF"
         app:cardElevation="4dp">
 
         <LinearLayout
@@ -20,63 +22,64 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:orientation="horizontal"
-            android:layout_gravity="center_vertical">
+            android:layout_gravity="center_vertical"
+            android:baselineAligned="false">
 
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_weight="9"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_weight="9"
+                android:orientation="vertical">
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:id="@+id/order_id"
                     android:layout_marginStart="10dp"
                     android:gravity="center_vertical|start"
                     android:textAllCaps="true"
                     android:textStyle="bold"
-                    android:text="@string/od_order_id_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:text="@string/aod_order_id"/>
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:id="@+id/order_phone"
                     android:layout_marginStart="10dp"
                     android:gravity="center_vertical|start"
                     android:textAllCaps="true"
                     android:textStyle="italic"
-                    android:text="@string/od_order_phone_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:text="@string/aod_order_phone"/>
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:id="@+id/order_total"
                     android:layout_marginStart="10dp"
                     android:gravity="center_vertical|start"
                     android:textAllCaps="true"
                     android:textStyle="italic"
-                    android:text="@string/od_cost_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:text="@string/aod_total"/>
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:id="@+id/order_address"
                     android:layout_marginStart="10dp"
                     android:gravity="center_vertical|start"
                     android:textAllCaps="true"
                     android:textStyle="italic"
-                    android:text="@string/od_address_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:text="@string/aod_address"/>
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:id="@+id/order_comment"
                     android:layout_marginStart="10dp"
                     android:gravity="center_vertical|start"
                     android:textAllCaps="true"
                     android:textStyle="italic"
-                    android:text="@string/od_comment_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:text="@string/aod_comment"/>
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -84,20 +87,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/order_info"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/order_info"
+        android:layout_marginTop="-8dp"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/od_detail_text"
-            android:textColor="@android:color/white"
-            android:textSize="30sp"
             android:layout_marginBottom="20dp"
-            android:layout_marginStart="8dp"/>
+            android:layout_marginStart="8dp"
+            android:text="@string/aod_detail"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/lstFood"
+            android:id="@+id/lstFoods"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>

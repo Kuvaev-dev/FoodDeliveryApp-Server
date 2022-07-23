@@ -1,8 +1,8 @@
 package kuvaev.mainapp.eatit_server.Model;
 
 public class Token {
-    private String token;
-    private boolean isServerToken;
+    public String token;
+    public boolean isServerToken;
 
     public Token() { }
 
@@ -27,3 +27,4 @@ public class Token {
         isServerToken = serverToken;
     }
 }
+

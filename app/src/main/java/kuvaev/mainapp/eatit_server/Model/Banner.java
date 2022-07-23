@@ -1,12 +1,12 @@
 package kuvaev.mainapp.eatit_server.Model;
 
 public class Banner {
-    private String id , name , image;
+    private String id, name, image;
 
     public Banner() { }
 
     public Banner(String id, String name, String image) {
-        this.id = id;  // this id is Category Id
+        this.id = id;
         this.name = name;
         this.image = image;
     }
@@ -35,3 +35,5 @@ public class Banner {
         this.image = image;
     }
 }
+
+

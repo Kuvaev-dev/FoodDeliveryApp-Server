@@ -1,106 +1,75 @@
 package kuvaev.mainapp.eatit_server.Service;
 
-import android.app.Notification;
+import android.annotation.SuppressLint;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
-import android.os.IBinder;
 
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
+import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 
+import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
-import java.util.Map;
 import java.util.Random;
 
 import kuvaev.mainapp.eatit_server.Common.Common;
 import kuvaev.mainapp.eatit_server.Helper.NotificationHelper;
-import kuvaev.mainapp.eatit_server.OrderStatusActivity;
+import kuvaev.mainapp.eatit_server.MainActivity;
+import kuvaev.mainapp.eatit_server.OrderStatus;
 import kuvaev.mainapp.eatit_server.R;
 
-public class MyFirebaseMessaging extends Service {
-    public void onMessageReceived(RemoteMessage remoteMessage) {
-        remoteMessage.getData();
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+@SuppressLint("MissingFirebaseInstanceTokenRefresh")
+public class MyFirebaseMessaging extends FirebaseMessagingService {
+    @Override
+    public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
+        super.onMessageReceived(remoteMessage);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
             sendNotificationAPI26(remoteMessage);
         else
             sendNotification(remoteMessage);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     private void sendNotificationAPI26(RemoteMessage remoteMessage) {
-        Map<String , String> data = remoteMessage.getData();
-        String title = data.get("title");
-        String message = data.get("message");
+        RemoteMessage.Notification notification = remoteMessage.getNotification();
+        assert notification != null;
+        String title = notification.getTitle();
+        String content = notification.getBody();
 
-        // Here we will fix to click to notification => go to Order list
-        PendingIntent pendingIntent;
-        NotificationHelper helper;
-        Notification.Builder builder;
+        Intent intent = new Intent(this, OrderStatus.class);
+        intent.putExtra(Common.PHONE_TEXT, Common.currentUser.getPhone());
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        @SuppressLint("UnspecifiedImmutableFlag") PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
 
-        if (Common.currentUser != null){
-            // Here will fix to click to notification -> go to Order list
-            Intent intent = new Intent(this, OrderStatusActivity.class);
-            intent.putExtra(Common.PHONE_TEXT, Common.currentUser.getPhone());
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            pendingIntent = PendingIntent.getActivity(this , 0 , intent ,
-                    PendingIntent.FLAG_UPDATE_CURRENT);
+        Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        NotificationHelper helper = new NotificationHelper(this);
+        android.app.Notification.Builder builder = helper.getiDeliveryChannelNotification(title,content,pendingIntent,defaultSoundUri);
 
-            Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-            helper = new NotificationHelper(this);
-            builder = helper.getEatItChannelNotification(title,
-                    message,
-                    pendingIntent,
-                    defaultSoundUri);
-
-            // Get random Id for notification to show all notifications
-            helper.getManager().notify(new Random().nextInt() , builder.build());
-        }
-        else {  //Fix crush when notification send from new system (Common.currentUser == null)
-
-            Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-            helper = new NotificationHelper(this);
-            builder = helper.getEatItChannelNotification(title, message, defaultSoundUri);
-
-            helper.getManager().notify(new Random().nextInt() , builder.build());
-        }
+        // get random ID for notification to show all notifications
+        helper.getManager().notify(new Random().nextInt(), builder.build());
     }
 
     private void sendNotification(RemoteMessage remoteMessage) {
-        Map<String , String> data = remoteMessage.getData();
-        String title = data.get("title");
-        String message = data.get("message");
-
-        Intent intent = new Intent(this, OrderStatusActivity.class);
-        intent.putExtra(Common.PHONE_TEXT, Common.currentUser.getPhone());
+        RemoteMessage.Notification notification = remoteMessage.getNotification();
+        Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this , 0 , intent ,
-                PendingIntent.FLAG_UPDATE_CURRENT);
+        @SuppressLint("UnspecifiedImmutableFlag") PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
 
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.mipmap.ic_start)
-                .setContentTitle(title)
-                .setContentText(message)
+        assert notification != null;
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "")
+                .setSmallIcon(R.mipmap.ic_launcher_round)
+                .setContentTitle(notification.getTitle())
+                .setContentText(notification.getBody())
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)
                 .setContentIntent(pendingIntent);
 
-        NotificationManager manager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-        manager.notify(0  , builder.build());
-    }
-
-    @Nullable
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
+        NotificationManager noti = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+        noti.notify(0, builder.build());
     }
 }
