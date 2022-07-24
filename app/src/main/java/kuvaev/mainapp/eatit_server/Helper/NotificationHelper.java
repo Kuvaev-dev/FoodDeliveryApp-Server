@@ -13,7 +13,6 @@ import android.os.Build;
 import kuvaev.mainapp.eatit_server.R;
 
 public class NotificationHelper extends ContextWrapper {
-
     private static final String iDelivery_ID = "kuvaev.mainapp.eatit_server.EatIt";
     private static final String iDelivery_Name = "iDelivery";
 

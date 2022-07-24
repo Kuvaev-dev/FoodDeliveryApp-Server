@@ -15,7 +15,6 @@ import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -28,9 +27,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.squareup.picasso.Picasso;
 
@@ -193,7 +190,7 @@ public class Home extends AppCompatActivity
                 && data.getData()!= null){
 
             saveUri = data.getData();
-            btnSelect.setText("Image Selected!");
+            btnSelect.setText(R.string.fl_image_selected_string);
         }
     }
 
@@ -201,7 +198,7 @@ public class Home extends AppCompatActivity
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Image"), PICK_IMAGE_REQUEST);
+        startActivityIfNeeded(Intent.createChooser(intent, "Select Image"), PICK_IMAGE_REQUEST);
     }
 
     private void uploadImage() {
@@ -215,13 +212,9 @@ public class Home extends AppCompatActivity
             imageFolder.putFile(saveUri).addOnSuccessListener(taskSnapshot -> {
                 mDialog.dismiss();
                 Toast.makeText(Home.this, "Uploaded!!!", Toast.LENGTH_SHORT).show();
-                imageFolder.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-
-                        //set value for newCategory if image upload and we can get download link
-                        newCategory = new Category(Objects.requireNonNull(edtName.getText()).toString(), uri.toString());
-                    }
+                imageFolder.getDownloadUrl().addOnSuccessListener(uri -> {
+                    // set value for newCategory if image upload and we can get download link
+                    newCategory = new Category(Objects.requireNonNull(edtName.getText()).toString(), uri.toString());
                 });
             }).addOnFailureListener(e -> {
                 mDialog.dismiss();

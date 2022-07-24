@@ -197,7 +197,7 @@ public class OrderStatus extends AppCompatActivity {
                 requests.child(localKey).setValue(item);
                 adapter.notifyDataSetChanged(); // add to update item size
                 sendOrderStatusToUser(localKey, item);
-                sendOrderShipRequestToShipper(shipperSpinner.getItems().get(shipperSpinner.getSelectedIndex()).toString(), item);
+                sendOrderShipRequestToShipper(shipperSpinner.getItems().get(shipperSpinner.getSelectedIndex()).toString());
             } else {
                 requests.child(localKey).setValue(item);
                 adapter.notifyDataSetChanged(); // add to update item size
@@ -209,7 +209,7 @@ public class OrderStatus extends AppCompatActivity {
         alertDialog.show();
     }
 
-    private void sendOrderShipRequestToShipper(String shipperPhone, Request item) {
+    private void sendOrderShipRequestToShipper(String shipperPhone) {
         DatabaseReference tokens = db.getReference("Tokens");
 
         tokens.child(shipperPhone)

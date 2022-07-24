@@ -18,11 +18,15 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.Priority;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -32,6 +36,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.android.gms.tasks.Task;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -61,13 +66,8 @@ public class TrackingOrder extends FragmentActivity implements OnMapReadyCallbac
     private final static int PLAY_SERVICE_RESOLUTION_REQUEST = 1000;
     private final static int LOCATION_PERMISSION_REQUEST = 1001;
 
-    private Location mLastLocation;
-    private GoogleApiClient mGoogleApiClient;
-    private LocationRequest mLocationRequest;
-
-    private static int UPDATE_INTERVAL = 1000;
-    private static int FATEST_INTERVAL = 5000;
-    private static int DISPLACEMENT = 10;
+    private Task<Location> mLastLocation;
+    private GoogleSignInClient mGoogleApiClient;
 
     private GeoCoordinateAction mService;
     TextView distance,duration,time;
@@ -105,7 +105,7 @@ public class TrackingOrder extends FragmentActivity implements OnMapReadyCallbac
             }
         }
 
-        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+        mLastLocation = LocationServices.getFusedLocationProviderClient(this).getLastLocation();
         displayLocation();
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -142,24 +142,18 @@ public class TrackingOrder extends FragmentActivity implements OnMapReadyCallbac
                 (this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             requestRuntimePermission();
         } else {
-            mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-            if (mLastLocation != null) {
-                double latitude = mLastLocation.getLatitude();
-                double longitude = mLastLocation.getLongitude();
-
-                // Add Marker in location and move the camera
-                LatLng yourLocation = new LatLng(latitude, longitude);
-                mMap.addMarker(new MarkerOptions().position(yourLocation).title("Your Location"));
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(yourLocation));
-                mMap.animateCamera(CameraUpdateFactory.zoomTo(17.0f));
-
-                // After add Marker for location, Add Marker for Order and draw route
-                drawRoute(yourLocation, Common.currentRequest.getAddress());
-            } else {
-                Toast.makeText(this, "Couldn't get the location", Toast.LENGTH_SHORT).show();
-            }
+            mLastLocation = LocationServices.getFusedLocationProviderClient(this).getLastLocation()
+                    .addOnCompleteListener(task -> {
+                        Location location = task.getResult();
+                        double latitude = location.getLatitude();
+                        double longitude = location.getLongitude();
+                        LatLng yourLocation = new LatLng(latitude, longitude);
+                        mMap.addMarker(new MarkerOptions().position(yourLocation).title("Your Location"));
+                        mMap.moveCamera(CameraUpdateFactory.newLatLng(yourLocation));
+                        mMap.animateCamera(CameraUpdateFactory.zoomTo(17.0f));
+                        drawRoute(yourLocation, Common.currentRequest.getAddress());
+                    });
         }
-
     }
 
     private void drawRoute(final LatLng yourLocation, final String address) {
@@ -168,7 +162,7 @@ public class TrackingOrder extends FragmentActivity implements OnMapReadyCallbac
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 try{
-                    JSONObject jsonObject = new JSONObject(response.body().toString());
+                    JSONObject jsonObject = new JSONObject(response.body());
 
                     String lat = ((JSONArray)jsonObject.get("results"))
                             .getJSONObject(0)
@@ -191,7 +185,6 @@ public class TrackingOrder extends FragmentActivity implements OnMapReadyCallbac
                             .title("Order of " + Common.currentRequest.getPhone())
                             .position(orderLocation);
 
-
                     mMap.addMarker(marker);
 
                     //draw route
@@ -201,7 +194,7 @@ public class TrackingOrder extends FragmentActivity implements OnMapReadyCallbac
                             .enqueue(new Callback<String>() {
                                 @Override
                                 public void onResponse(Call<String> call, Response<String> response) {
-                                    new ParserTask().execute(response.body().toString());
+                                    new ParserTask().execute(response.body());
                                 }
 
                                 @Override
@@ -222,27 +215,26 @@ public class TrackingOrder extends FragmentActivity implements OnMapReadyCallbac
     }
 
     private void createLocationRequest() {
-        mLocationRequest = new LocationRequest();
+        LocationRequest mLocationRequest = LocationRequest.create();
+        int UPDATE_INTERVAL = 1000;
         mLocationRequest.setInterval(UPDATE_INTERVAL);
+        int FATEST_INTERVAL = 5000;
         mLocationRequest.setFastestInterval(FATEST_INTERVAL);
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        mLocationRequest.setPriority(Priority.PRIORITY_HIGH_ACCURACY);
+        int DISPLACEMENT = 10;
         mLocationRequest.setSmallestDisplacement(DISPLACEMENT);
     }
 
     protected synchronized void buildGoogleApiClient() {
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(LocationServices.API).build();
-
-        mGoogleApiClient.connect();
+        GoogleSignInOptions options = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).build();
+        mGoogleApiClient = GoogleSignIn.getClient(this, options);
     }
 
     private boolean checkPlayServices() {
-        int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+        int resultCode = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this);
         if (resultCode != ConnectionResult.SUCCESS){
-            if (GooglePlayServicesUtil.isUserRecoverableError(resultCode)){
-                GooglePlayServicesUtil.getErrorDialog(resultCode, this, PLAY_SERVICE_RESOLUTION_REQUEST).show();
+            if (GoogleApiAvailability.getInstance().isUserResolvableError(resultCode)){
+                Objects.requireNonNull(GoogleApiAvailability.getInstance().getErrorDialog(this, resultCode, PLAY_SERVICE_RESOLUTION_REQUEST)).show();
             } else {
                 Toast.makeText(this, "This device is not support", Toast.LENGTH_SHORT).show();
                 finish();
@@ -259,7 +251,6 @@ public class TrackingOrder extends FragmentActivity implements OnMapReadyCallbac
 
     @Override
     public void onLocationChanged(@NonNull Location location) {
-        mLastLocation = location;
         displayLocation();
     }
 
@@ -275,12 +266,12 @@ public class TrackingOrder extends FragmentActivity implements OnMapReadyCallbac
                 (this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
-        LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, (LocationListener) this);
+        LocationServices.getFusedLocationProviderClient(this).getLastLocation();
     }
 
     @Override
     public void onConnectionSuspended(int i) {
-        mGoogleApiClient.connect();
+        mGoogleApiClient.getSignInIntent();
     }
 
     @Override
@@ -298,7 +289,7 @@ public class TrackingOrder extends FragmentActivity implements OnMapReadyCallbac
     protected void onStart() {
         super.onStart();
         if (mGoogleApiClient != null)
-            mGoogleApiClient.connect();
+            mGoogleApiClient.getSignInIntent();
     }
 
     private class ParserTask extends AsyncTask<String, Integer, List<List<HashMap<String,String>>>> {

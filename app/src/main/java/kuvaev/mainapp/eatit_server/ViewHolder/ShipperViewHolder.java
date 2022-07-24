@@ -25,12 +25,8 @@ public class ShipperViewHolder extends RecyclerView.ViewHolder implements View.O
         btn_remove = (Button)itemView.findViewById(R.id.btnDeleteShipper);
     }
 
-    public void setItemClickListener(ItemClickListener itemClickListener){
-        this.itemClickListener = itemClickListener;
-    }
-
     @Override
     public void onClick(View v) {
-        itemClickListener.onClick(v, getAdapterPosition(), false);
+        itemClickListener.onClick(v, getBindingAdapterPosition(), false);
     }
 }

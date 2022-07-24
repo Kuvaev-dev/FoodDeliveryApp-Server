@@ -117,7 +117,7 @@ public class BannerActivity extends AppCompatActivity {
             @Override
             public BannerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 View itemView = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.layout_banner, parent, false);
+                        .inflate(R.layout.banner_layout, parent, false);
                 return  new BannerViewHolder(itemView);
             }
         };
@@ -140,7 +140,7 @@ public class BannerActivity extends AppCompatActivity {
         alertDialog.setMessage("Please fill full formation");
 
         LayoutInflater inflater = this.getLayoutInflater();
-        View add_menu_layout = inflater.inflate(R.layout.layout_add_new_banner,null);
+        View add_menu_layout = inflater.inflate(R.layout.add_new_banner,null);
 
         edtFoodId = add_menu_layout.findViewById(R.id.edtFoodId);
         edtName = add_menu_layout.findViewById(R.id.edtFoodName);
@@ -237,7 +237,7 @@ public class BannerActivity extends AppCompatActivity {
         alertDialog.setMessage("Please fill full formation");
 
         LayoutInflater inflater = this.getLayoutInflater();
-        View edit_banner = inflater.inflate(R.layout.layout_add_new_banner,null);
+        View edit_banner = inflater.inflate(R.layout.add_new_banner,null);
 
         edtName = edit_banner.findViewById(R.id.edtFoodName);
         edtFoodId = edit_banner.findViewById(R.id.edtFoodId);

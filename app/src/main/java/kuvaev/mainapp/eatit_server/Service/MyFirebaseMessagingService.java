@@ -12,6 +12,9 @@ import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -20,11 +23,28 @@ import java.util.Random;
 import kuvaev.mainapp.eatit_server.Common.Common;
 import kuvaev.mainapp.eatit_server.Helper.NotificationHelper;
 import kuvaev.mainapp.eatit_server.MainActivity;
+import kuvaev.mainapp.eatit_server.Model.Token;
 import kuvaev.mainapp.eatit_server.OrderStatus;
 import kuvaev.mainapp.eatit_server.R;
 
-@SuppressLint("MissingFirebaseInstanceTokenRefresh")
-public class MyFirebaseMessaging extends FirebaseMessagingService {
+public class MyFirebaseMessagingService extends FirebaseMessagingService {
+    @Override
+    public void onNewToken(@NonNull String newToken) {
+        newToken = FirebaseMessaging.getInstance().getToken().toString();
+        updateToServer(newToken);
+    }
+
+    private void updateToServer(String refreshedToken) {
+        if (Common.currentUser != null) {
+            FirebaseDatabase db = FirebaseDatabase.getInstance();
+            DatabaseReference tokens = db.getReference("Tokens");
+            Token data = new Token(refreshedToken, true);
+            // false because token send from client app
+
+            tokens.child(Common.currentUser.getPhone()).setValue(data);
+        }
+    }
+
     @Override
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);

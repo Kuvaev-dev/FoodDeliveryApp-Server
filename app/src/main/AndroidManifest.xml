@@ -46,8 +46,7 @@
             android:exported="false" />
         <activity
             android:name=".Home"
-            android:exported="false"
-            android:label="@string/title_activity_home"/>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -58,19 +57,14 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".Service.MyFirebaseIdService"
-            android:exported="false"
-            android:permission="TODO">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-            </intent-filter>
-        </service>
-        <service android:name=".Service.MyFirebaseMessaging"
+        <service android:name=".Service.MyFirebaseMessagingService"
             android:exported="false"
             android:permission="TODO">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
     </application>
 </manifest>

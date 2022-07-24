@@ -34,18 +34,13 @@ public class Common {
 
     public static String PHONE_TEXT = "userPhone";
 
-    public static final String INTENT_ACCOUNT = "Account";
-    public static final String INTENT_FOOD_ID = "FoodId";
-
     public static final String UPDATE = "Update";
     public static final String DELETE = "Delete";
-    public static final String REMOVE = "Delete";
 
     public static final int PICK_IMAGE_REQUEST = 71;
 
     public static final String baseURL = "https://maps.googleapis.com/";
     public static final String fcmURL =  "https://fcm.googleapis.com/";
-
 
     public static String convertCodeToStatus(String code){
         switch (code) {

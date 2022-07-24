@@ -194,7 +194,7 @@ public class MainAdminActivity extends AppCompatActivity
                 && data.getData() != null) {
 
             saveUri = data.getData();
-            btnSelect.setText("Image Selected!");
+            btnSelect.setText(R.string.fl_image_selected_string);
         }
     }
 
