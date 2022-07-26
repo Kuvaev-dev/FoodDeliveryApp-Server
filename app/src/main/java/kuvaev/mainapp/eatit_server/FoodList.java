@@ -15,7 +15,6 @@ import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
@@ -91,15 +90,15 @@ public class FoodList extends AppCompatActivity {
         storageReference = storage.getReference();
 
         // Init
-        recyclerView = (RecyclerView)findViewById(R.id.recycler_food);
+        recyclerView = findViewById(R.id.recycler_food);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
         // set layout of foodlist
-        rootLayout = (RelativeLayout)findViewById(R.id.rootLayout);
+        rootLayout = findViewById(R.id.rootLayout);
 
-        fab = (FloatingActionButton)findViewById(R.id.fab);
+        fab = findViewById(R.id.fab);
         fab.setOnClickListener(v -> showAddFoodDialog());
 
         if (getIntent() != null)

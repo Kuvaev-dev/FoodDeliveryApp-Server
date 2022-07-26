@@ -15,11 +15,11 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
     public UserViewHolder(View itemView) {
         super(itemView);
 
-        staffName = (TextView)itemView.findViewById(R.id.staff_name);
-        staffPassword = (TextView)itemView.findViewById(R.id.staff_password);
+        staffName = itemView.findViewById(R.id.staff_name);
+        staffPassword = itemView.findViewById(R.id.staff_password);
 
-        staffRole = (TextView)itemView.findViewById(R.id.staff_role);
-        btnEditAccount = (Button)itemView.findViewById(R.id.btnEditStaff);
-        btnDeleteAccount = (Button)itemView.findViewById(R.id.btnDeleteStaff);
+        staffRole = itemView.findViewById(R.id.staff_role);
+        btnEditAccount = itemView.findViewById(R.id.btnEditStaff);
+        btnDeleteAccount = itemView.findViewById(R.id.btnDeleteStaff);
     }
 }

@@ -81,7 +81,7 @@ public class OrderStatus extends AppCompatActivity {
         mService = Common.getFCMClient();
 
         // Init
-        recyclerView = (RecyclerView) findViewById(R.id.listOrders);
+        recyclerView = findViewById(R.id.listOrders);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -158,10 +158,10 @@ public class OrderStatus extends AppCompatActivity {
         LayoutInflater inflater = this.getLayoutInflater();
         final View view = inflater.inflate(R.layout.update_order_layout, null);
 
-        spinner = (MaterialSpinner) view.findViewById(R.id.statusSpinner);
+        spinner = view.findViewById(R.id.statusSpinner);
         spinner.setItems("Placed", "Preparing Orders", "Shipping", "Delivered");
 
-        shipperSpinner = (MaterialSpinner) view.findViewById(R.id.shipperSpinner);
+        shipperSpinner = view.findViewById(R.id.shipperSpinner);
 
         // load all shipper to spinner
         final List<String> shipperList = new ArrayList<>();

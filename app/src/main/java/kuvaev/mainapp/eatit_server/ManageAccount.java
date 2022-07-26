@@ -60,13 +60,13 @@ public class ManageAccount extends AppCompatActivity {
         setContentView(R.layout.activity_inc_account);
 
         //Init View
-        fabAddStaff = (FloatingActionButton) findViewById(R.id.fab_add_staff);
+        fabAddStaff = findViewById(R.id.fab_add_staff);
         fabAddStaff.setOnClickListener(v -> showCreateAccountDialog());
 
         db = FirebaseDatabase.getInstance();
         users = db.getReference(Common.Staff_TABLE);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_account);
+        recyclerView = findViewById(R.id.recycler_account);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         loadAccount();
@@ -109,9 +109,9 @@ public class ManageAccount extends AppCompatActivity {
         LayoutInflater inflater = LayoutInflater.from(this);
         View layout_account = inflater.inflate(R.layout.create_account_layout, null);
 
-        final MaterialEditText account_phone = (MaterialEditText) layout_account.findViewById(R.id.create_account_phone);
-        final MaterialEditText account_name = (MaterialEditText) layout_account.findViewById(R.id.create_account_name);
-        final MaterialEditText account_password = (MaterialEditText) layout_account.findViewById(R.id.create_account_password);
+        final MaterialEditText account_phone = layout_account.findViewById(R.id.create_account_phone);
+        final MaterialEditText account_name = layout_account.findViewById(R.id.create_account_name);
+        final MaterialEditText account_password = layout_account.findViewById(R.id.create_account_password);
         account_password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         account_password.setTransformationMethod(new PasswordTransformationMethod());
         alertDialog.setView(layout_account);
@@ -159,9 +159,9 @@ public class ManageAccount extends AppCompatActivity {
         LayoutInflater inflater = LayoutInflater.from(this);
         View layout_account = inflater.inflate(R.layout.create_account_layout, null);
 
-        final MaterialEditText account_phone = (MaterialEditText) layout_account.findViewById(R.id.create_account_phone);
-        final MaterialEditText account_name = (MaterialEditText) layout_account.findViewById(R.id.create_account_name);
-        final MaterialEditText account_password = (MaterialEditText) layout_account.findViewById(R.id.create_account_password);
+        final MaterialEditText account_phone = layout_account.findViewById(R.id.create_account_phone);
+        final MaterialEditText account_name = layout_account.findViewById(R.id.create_account_name);
+        final MaterialEditText account_password = layout_account.findViewById(R.id.create_account_password);
         account_password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         account_password.setTransformationMethod(new PasswordTransformationMethod());
 

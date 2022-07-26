@@ -95,7 +95,7 @@ public class MainAdminActivity extends AppCompatActivity
                 .build());
 
         setContentView(R.layout.activity_main_admin);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_admin);
+        Toolbar toolbar = findViewById(R.id.toolbar_admin);
         toolbar.setTitleTextColor(getResources().getColor(R.color.colorWhite));
         toolbar.setTitle("Menu Management");
         setSupportActionBar(toolbar);
@@ -106,25 +106,25 @@ public class MainAdminActivity extends AppCompatActivity
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_admin);
+        FloatingActionButton fab = findViewById(R.id.fab_admin);
         fab.setOnClickListener(view -> showDialog());
 
-        drawer_admin = (DrawerLayout) findViewById(R.id.drawer_layout_admin);
+        drawer_admin = findViewById(R.id.drawer_layout_admin);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer_admin, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer_admin.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_admin);
+        NavigationView navigationView = findViewById(R.id.nav_view_admin);
         navigationView.setNavigationItemSelectedListener(this);
 
         // set name for user
         View headerView = navigationView.getHeaderView(0);
-        txtFullNameAdmin = (TextView) headerView.findViewById(R.id.txtFullNameAdmin);
+        txtFullNameAdmin = headerView.findViewById(R.id.txtFullNameAdmin);
         txtFullNameAdmin.setText(Common.currentUser.getName());
 
         // init view
-        recycler_menu_admin = (RecyclerView) findViewById(R.id.recycler_menu_admin);
+        recycler_menu_admin = findViewById(R.id.recycler_menu_admin);
         recycler_menu_admin.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recycler_menu_admin.setLayoutManager(layoutManager);
@@ -287,7 +287,7 @@ public class MainAdminActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_admin);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout_admin);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -323,7 +323,7 @@ public class MainAdminActivity extends AppCompatActivity
            startActivity(about);
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_admin);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout_admin);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

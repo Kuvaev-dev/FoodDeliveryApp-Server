@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        btnSignInAsAdmin = (Button)findViewById(R.id.btnSignInAsAdmin);
-        btnSignInAsStaff = (Button)findViewById(R.id.btnSignInAsStaff);
+        btnSignInAsAdmin = findViewById(R.id.btnSignInAsAdmin);
+        btnSignInAsStaff = findViewById(R.id.btnSignInAsStaff);
 
         btnSignInAsStaff.setOnClickListener(v -> {
             Intent signInAsStaff = new Intent(MainActivity.this, SignInAsStaff.class);

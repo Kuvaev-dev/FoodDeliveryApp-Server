@@ -48,9 +48,9 @@ public class SendMessage extends AppCompatActivity {
 
         mService = Common.getFCMClient();
 
-        edtTitle = (MaterialEditText) findViewById(R.id.edtTitle);
-        edtMessage = (MaterialEditText) findViewById(R.id.edtMessage);
-        btnSubmit = (FButton) findViewById(R.id.btnSubmit);
+        edtTitle = findViewById(R.id.edtTitle);
+        edtMessage = findViewById(R.id.edtMessage);
+        btnSubmit = findViewById(R.id.btnSubmit);
 
         btnSubmit.setOnClickListener(v -> verifyTitleAndMessage());
     }

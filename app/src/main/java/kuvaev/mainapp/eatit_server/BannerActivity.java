@@ -86,14 +86,14 @@ public class BannerActivity extends AppCompatActivity {
         storageReference = storage.getReference();
 
         // Init View
-        recyclerView = (RecyclerView)findViewById(R.id.recycler_banner);
+        recyclerView = findViewById(R.id.recycler_banner);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        rootLayout = (RelativeLayout)findViewById(R.id.rootLayout);
+        rootLayout = findViewById(R.id.rootLayout);
 
         // fab
-        fab = (FloatingActionButton)findViewById(R.id.fab);
+        fab = findViewById(R.id.fab);
         fab.setOnClickListener(v -> showAddBanner());
         loadListBanner();
     }
@@ -198,11 +198,10 @@ public class BannerActivity extends AppCompatActivity {
 
 
     private void chooseImage() {
-
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Image"), Common.PICK_IMAGE_REQUEST);
+        startActivityIfNeeded(Intent.createChooser(intent, "Select Image"), Common.PICK_IMAGE_REQUEST);
     }
 
     @Override
@@ -213,7 +212,7 @@ public class BannerActivity extends AppCompatActivity {
                 && data.getData()!= null){
 
             filePath = data.getData();
-            btnSelect.setText("Image Selected!");
+            btnSelect.setText(R.string.image_selected_string);
         }
     }
 

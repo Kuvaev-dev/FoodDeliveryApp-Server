@@ -65,7 +65,7 @@ public class ViewComment extends AppCompatActivity {
         setContentView(R.layout.activity_show_comment);
 
         // Init SwipeRefreshLayout view
-        swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swipe_layout);
+        swipeRefreshLayout = findViewById(R.id.swipe_layout);
         swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary,
                 android.R.color.holo_green_dark,
                 android.R.color.holo_orange_dark,
@@ -92,7 +92,7 @@ public class ViewComment extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         ratingDb = database.getReference("Rating");
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_comment);
+        recyclerView = findViewById(R.id.recycler_comment);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 

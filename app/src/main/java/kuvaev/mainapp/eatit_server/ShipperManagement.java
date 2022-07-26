@@ -62,10 +62,10 @@ public class ShipperManagement extends AppCompatActivity {
         setContentView(R.layout.activity_shipper_management);
 
         // Init View
-        fabAdd = (FloatingActionButton)findViewById(R.id.fab_add);
+        fabAdd = findViewById(R.id.fab_add);
         fabAdd.setOnClickListener(v -> showCreateShipperLayout());
 
-        recyclerView = (RecyclerView)findViewById(R.id.recycler_shippers);
+        recyclerView = findViewById(R.id.recycler_shippers);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -135,9 +135,9 @@ public class ShipperManagement extends AppCompatActivity {
         LayoutInflater inflater = LayoutInflater.from(this);
         View layout_shipper = inflater.inflate(R.layout.create_shipper_layout, null);
 
-        final MaterialEditText shipper_phone = (MaterialEditText) layout_shipper.findViewById(R.id.create_shipper_phone);
-        final MaterialEditText shipper_name = (MaterialEditText) layout_shipper.findViewById(R.id.create_shipper_name);
-        final MaterialEditText shipper_password = (MaterialEditText) layout_shipper.findViewById(R.id.create_shipper_password);
+        final MaterialEditText shipper_phone = layout_shipper.findViewById(R.id.create_shipper_phone);
+        final MaterialEditText shipper_name = layout_shipper.findViewById(R.id.create_shipper_name);
+        final MaterialEditText shipper_password = layout_shipper.findViewById(R.id.create_shipper_password);
         shipper_password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         shipper_password.setTransformationMethod(new PasswordTransformationMethod());
 
@@ -190,9 +190,9 @@ public class ShipperManagement extends AppCompatActivity {
         LayoutInflater inflater = LayoutInflater.from(this);
         View layout_shipper = inflater.inflate(R.layout.create_shipper_layout, null);
 
-        final MaterialEditText shipper_phone = (MaterialEditText) layout_shipper.findViewById(R.id.create_shipper_phone);
-        final MaterialEditText shipper_name = (MaterialEditText) layout_shipper.findViewById(R.id.create_shipper_name);
-        final MaterialEditText shipper_password = (MaterialEditText) layout_shipper.findViewById(R.id.create_shipper_password);
+        final MaterialEditText shipper_phone = layout_shipper.findViewById(R.id.create_shipper_phone);
+        final MaterialEditText shipper_name = layout_shipper.findViewById(R.id.create_shipper_name);
+        final MaterialEditText shipper_password = layout_shipper.findViewById(R.id.create_shipper_password);
         shipper_password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         shipper_password.setTransformationMethod(new PasswordTransformationMethod());
 

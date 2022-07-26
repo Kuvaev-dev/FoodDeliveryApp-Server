@@ -18,9 +18,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.rengwuxian.materialedittext.MaterialEditText;
 
-import info.hoang8f.widget.FButton;
 import kuvaev.mainapp.eatit_server.Common.Common;
 import kuvaev.mainapp.eatit_server.Model.User;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
@@ -50,12 +48,12 @@ public class SignInAsAdmin extends AppCompatActivity {
 
         setContentView(R.layout.activity_sign_in_admin);
 
-        edtPhone = (MaterialEditText) findViewById(R.id.edtPhone);
-        edtPassword = (MaterialEditText) findViewById(R.id.edtPassword);
+        edtPhone = findViewById(R.id.edtPhone);
+        edtPassword = findViewById(R.id.edtPassword);
         edtPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         edtPassword.setTransformationMethod(new PasswordTransformationMethod());
 
-        btnSignInAsAdmin = (FButton) findViewById(R.id.btnSignInAsAdmin);
+        btnSignInAsAdmin = findViewById(R.id.btnSignInAsAdmin);
 
         // Init firebase
         db = FirebaseDatabase.getInstance();

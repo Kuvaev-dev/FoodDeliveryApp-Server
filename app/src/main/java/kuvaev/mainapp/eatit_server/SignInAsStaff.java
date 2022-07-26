@@ -50,12 +50,12 @@ public class SignInAsStaff extends AppCompatActivity {
 
         setContentView(R.layout.activity_sign_in);
 
-        edtPhone = (MaterialEditText)findViewById(R.id.edtPhone);
-        edtPassword = (MaterialEditText)findViewById(R.id.edtPassword);
+        edtPhone = findViewById(R.id.edtPhone);
+        edtPassword = findViewById(R.id.edtPassword);
         edtPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         edtPassword.setTransformationMethod(new PasswordTransformationMethod());
 
-        btnSignInAsStaff = (FButton)findViewById(R.id.btnSignInAsStaff);
+        btnSignInAsStaff = findViewById(R.id.btnSignInAsStaff);
 
         // Init firebase
         db = FirebaseDatabase.getInstance();

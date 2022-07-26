@@ -17,12 +17,12 @@ public class ShipperViewHolder extends RecyclerView.ViewHolder implements View.O
     public ShipperViewHolder(View itemView) {
         super(itemView);
 
-        shipper_name = (TextView)itemView.findViewById(R.id.shipper_name);
-        shipper_phone = (TextView)itemView.findViewById(R.id.shipper_phone);
-        shipper_password = (TextView)itemView.findViewById(R.id.shipper_password);
+        shipper_name = itemView.findViewById(R.id.shipper_name);
+        shipper_phone = itemView.findViewById(R.id.shipper_phone);
+        shipper_password = itemView.findViewById(R.id.shipper_password);
 
-        btn_edit = (Button)itemView.findViewById(R.id.btnEditShipper);
-        btn_remove = (Button)itemView.findViewById(R.id.btnDeleteShipper);
+        btn_edit = itemView.findViewById(R.id.btnEditShipper);
+        btn_remove = itemView.findViewById(R.id.btnDeleteShipper);
     }
 
     @Override

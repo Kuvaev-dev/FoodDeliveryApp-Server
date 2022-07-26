@@ -27,7 +27,6 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.Priority;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -36,7 +35,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.maps.model.PolylineOptions;
-import com.google.android.gms.tasks.Task;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -66,7 +64,6 @@ public class TrackingOrder extends FragmentActivity implements OnMapReadyCallbac
     private final static int PLAY_SERVICE_RESOLUTION_REQUEST = 1000;
     private final static int LOCATION_PERMISSION_REQUEST = 1001;
 
-    private Task<Location> mLastLocation;
     private GoogleSignInClient mGoogleApiClient;
 
     private GeoCoordinateAction mService;
@@ -90,9 +87,9 @@ public class TrackingOrder extends FragmentActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_tracking_order);
 
         mService = Common.getGeoCodeService();
-        distance = (TextView)findViewById(R.id.display_distance);
-        duration = (TextView)findViewById(R.id.display_duration);
-        time = (TextView)findViewById(R.id.display_expected_hour);
+        distance = findViewById(R.id.display_distance);
+        duration = findViewById(R.id.display_duration);
+        time = findViewById(R.id.display_expected_hour);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission
@@ -105,7 +102,6 @@ public class TrackingOrder extends FragmentActivity implements OnMapReadyCallbac
             }
         }
 
-        mLastLocation = LocationServices.getFusedLocationProviderClient(this).getLastLocation();
         displayLocation();
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -141,18 +137,6 @@ public class TrackingOrder extends FragmentActivity implements OnMapReadyCallbac
                 != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission
                 (this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             requestRuntimePermission();
-        } else {
-            mLastLocation = LocationServices.getFusedLocationProviderClient(this).getLastLocation()
-                    .addOnCompleteListener(task -> {
-                        Location location = task.getResult();
-                        double latitude = location.getLatitude();
-                        double longitude = location.getLongitude();
-                        LatLng yourLocation = new LatLng(latitude, longitude);
-                        mMap.addMarker(new MarkerOptions().position(yourLocation).title("Your Location"));
-                        mMap.moveCamera(CameraUpdateFactory.newLatLng(yourLocation));
-                        mMap.animateCamera(CameraUpdateFactory.zoomTo(17.0f));
-                        drawRoute(yourLocation, Common.currentRequest.getAddress());
-                    });
         }
     }
 

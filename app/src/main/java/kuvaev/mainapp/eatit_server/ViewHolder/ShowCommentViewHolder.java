@@ -18,11 +18,11 @@ public class ShowCommentViewHolder extends RecyclerView.ViewHolder {
 
     public ShowCommentViewHolder(View itemView) {
         super(itemView);
-        txtComment = (TextView)itemView.findViewById(R.id.comment);
-        txtUserPhone = (TextView)itemView.findViewById(R.id.comment_user_phone);
-        txtFoodName = (TextView)itemView.findViewById(R.id.comment_item_name);
-        ratingBar = (RatingBar)itemView.findViewById(R.id.ratingBar);
-        commentImage = (ImageView)itemView.findViewById(R.id.comment_image);
-        btnDeleteComment = (Button)itemView.findViewById(R.id.btnDeleteComment);
+        txtComment = itemView.findViewById(R.id.comment);
+        txtUserPhone = itemView.findViewById(R.id.comment_user_phone);
+        txtFoodName = itemView.findViewById(R.id.comment_item_name);
+        ratingBar = itemView.findViewById(R.id.ratingBar);
+        commentImage = itemView.findViewById(R.id.comment_image);
+        btnDeleteComment = itemView.findViewById(R.id.btnDeleteComment);
     }
 }
